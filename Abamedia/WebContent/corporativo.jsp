@@ -42,8 +42,10 @@ bc = consultas.getCorporativo();
 				<!-- nav -->
 				<ul id="nav" class="sf-menu">
 					<li class="current-menu-item"><a href="index.jsp">INICIO</a></li>
+					<li><a href="producciones.jsp">PRODUCCIONES</a></li>
 					<li><a href="corporativo.jsp">CORPORATIVO</a></li>
 					<li><a href="contacto.jsp">CONTACTO</a></li>
+					<li><a href="gestion.jsp">GESTIÓN</a></li>
 				</ul>
 				<div id="combo-holder"></div>
 				<!-- ends nav -->
