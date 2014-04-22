@@ -76,7 +76,7 @@ public class consultas implements java.io.Serializable{
 	    {
 			Class.forName("com.mysql.jdbc.Driver");
 	        Connection conexion = DriverManager.getConnection(
-	           "jdbc:mysql://localhost:3306/abamedia", "root", "00650065");
+	           "jdbc:mysql://localhost:3306/abamedia", "root", "root");
 	       Statement st = conexion.createStatement();
 	       ResultSet res = st.executeQuery("select * from corporativo" );
 	       while (res.next())
