@@ -10,7 +10,6 @@
 LinkedList<produccion> lista = consultas.getProducciones();
 	for (int i=0;i<lista.size();i++){
 		bp=lista.get(i);
-		asd;
 %>
 								
 	<tr>
