@@ -112,8 +112,7 @@
 					<!-- slider content --> 
 					<div class="main-slider-content" >
 					<ul class="sliders-wrap-inner">
-					<% 
-					LinkedList<String> listai = new LinkedList<String>();
+					<% LinkedList<String> listai = new LinkedList<String>();
 					produccion bp =new produccion();
 					LinkedList<produccion> lista = consultas.getProducciones();
 					for (int i=0;i<lista.size();i++){
