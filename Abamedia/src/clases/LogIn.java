@@ -30,7 +30,7 @@ public class LogIn extends HttpServlet {
 			String  nombre= request.getParameter("name");
 			String contra = request.getParameter("password");	
 	
-			if(consultas.comprobarUsuarioCon(nombre, contra)!= null)
+			if(consultas.comprobarUsuarioCon(nombre, contra)== null)
 			{
 				response.setContentType("text/html;charset=UTF-8");
 				PrintWriter out = response.getWriter();
@@ -43,8 +43,8 @@ public class LogIn extends HttpServlet {
 					out.println("<body>");
 					out.println("<h1>!Fijate! NO hay parámetros en URI</h1>");
 					
-					out.println("<b>Parametro: ");
-					out.println("<b>Valor: ");
+					out.println("<b>Parametro: " +nombre);
+					out.println("<b>Valor: "+ contra);
 					
 					out.println("<a	href=/DoGetDoPost/DoGetDoPost.html>"+ "Volver a la página anterior</a><br/>");
 					out.println("</body>");

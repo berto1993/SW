@@ -121,7 +121,7 @@
 				<p>Accede a la gestión</p>
 				<!-- form -->
 				<script type="text/javascript" src="js/form-validation.js"></script>
-				<form id="signIn" action="LogIn" method="post">
+				<form name="signIn" action="LogIn" method="POST">
 					<fieldset>
 														
 						<p>
@@ -135,7 +135,7 @@
 						</p>
 						
 					
-						<p><input type="button" value="Acceder" name="submit" id="submit" /> <span id="error" class="warning">Mensaje</span></p>
+						<p><input type="submit" value="Acceder" name="submit" id="submit" /> <span id="error" class="warning">Mensaje</span></p>
 					</fieldset>
 					
 				</form>
