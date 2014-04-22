@@ -116,5 +116,36 @@ public class consultas implements java.io.Serializable{
 	    }
 	    return beanCor;
 	 }
+	
+	public static usuario comprobarUsuarioCon(String pNombre,String pContra){
+		 usuario beanUs = null;
+		try
+	    {
+			Class.forName("com.mysql.jdbc.Driver");
+	        Connection conexion = DriverManager.getConnection(
+	           "jdbc:mysql://localhost:3306/abamedia", "root", "root");
+	       Statement st = conexion.createStatement();
+	       ResultSet res = st.executeQuery("select * from usuario where nombre="+pNombre+" and contrasena="+pContra);
+	       while (res.next())
+	       {
+	    	    beanUs = new usuario();
+	    	    beanUs.setNombreU(res.getString("nombre"));
+	    	    beanUs.setContra(res.getString("contrasena"));
+	    	    
+				
+	       }
+	       res.close();
+	       st.close();
+	       conexion.close();
+	    }
+	    catch (Exception e)
+	    {
+	    	System.out.println("Can´t connect to database.");
+	    
+	       e.printStackTrace();
+	    }
+	
+	    return beanUs;
+	 }
 }
 
