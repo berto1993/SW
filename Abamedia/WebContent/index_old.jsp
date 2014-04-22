@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page language="java" %>
-<%@ page import="javax.servlet.*"%>
+<%@ page import="javax.*"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.io.*" %>
 <%@ page import="clases.*" %>
