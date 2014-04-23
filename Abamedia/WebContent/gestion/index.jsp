@@ -1,0 +1,1 @@
+<% response.sendRedirect("actorlist.jsp"); %>
