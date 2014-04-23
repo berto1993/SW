@@ -1,12 +1,13 @@
 package clases;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.sql.Statement;
 
-public class consultas implements java.io.Serializable{
+public class consultas  implements java.io.Serializable{
 	
 	/**
 	 * 
@@ -153,25 +154,22 @@ public class consultas implements java.io.Serializable{
 	        Connection conexion = DriverManager.getConnection(
 	           "jdbc:mysql://localhost:3306/abamedia", "root", "root");
 	       Statement st = conexion.createStatement();
-	       ResultSet res = st.executeQuery("select * from usuario where nombre="+pNombre+" and contrasena="+pContra);
+	       ResultSet res = st.executeQuery("select * from usuario where name='"+pNombre+"' and password="+pContra);
 	       while (res.next())
 	       {
 	    	    beanUs = new usuario();
-	    	    beanUs.setNombreU(res.getString("nombre"));
-	    	    beanUs.setContra(res.getString("contrasena"));
+	    	    beanUs.setNombreU(res.getString("name"));
+	    	    beanUs.setContra(res.getString("password"));
 	    	    
 				
 	       }
-	       res.close();
-	       st.close();
-	       conexion.close();
 	    }
 	    catch (Exception e)
 	    {
 	    	System.out.println("Can´t connect to database.");
 	    
 	       e.printStackTrace();
-	    }
+	    }	
 	
 	    return beanUs;
 	 }

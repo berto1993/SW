@@ -29,9 +29,11 @@ public class LogIn extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			String  nombre= request.getParameter("name");
 			String contra = request.getParameter("password");	
-	
-			if(consultas.comprobarUsuarioCon(nombre, contra)== null)
-			{
+			usuario user = consultas.comprobarUsuarioCon(nombre, contra);
+			boolean encontrado = true;
+			if(user == null)
+			{encontrado = false;}
+				
 				response.setContentType("text/html;charset=UTF-8");
 				PrintWriter out = response.getWriter();
 				try 
@@ -41,7 +43,7 @@ public class LogIn extends HttpServlet {
 					out.println("<title>DoGetDoPost--POST</title>");
 					out.println("</head>");
 					out.println("<body>");
-					out.println("<h1>!Fijate! NO hay parámetros en URI</h1>");
+					out.println("<h1>!Fijate! NO hay parámetros en URI "+consultas.comprobarUsuarioCon(nombre, contra)+ "</h1>");
 					
 					out.println("<b>Parametro: " +nombre);
 					out.println("<b>Valor: "+ contra);
@@ -53,7 +55,7 @@ public class LogIn extends HttpServlet {
 				{
 					out.close();
 				}
-			}
+			
 					
 	}
 
