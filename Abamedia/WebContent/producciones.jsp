@@ -93,7 +93,7 @@
 			<div class="wrapper cf">
 				
 				<div id="logo">
-					<hi>ABAMedia</hi>
+					<h1>ABAMedia</h1>
 				</div>
 				
 				<!-- nav -->
@@ -115,16 +115,8 @@
 		<div id="main">
 			<div class="wrapper cf">
 			
-			
-			
-			
-			
-				
 			<!-- portfolio content-->
         	<div id="portfolio-content" class="cf">        	
-				
-				
-				
 				<ul id="filter-buttons">
 					<li><a href="#" data-filter="*" class="selected">show all</a></li>
 					<% LinkedList<tipo> listaTipo = consultas.getTipos();
@@ -182,84 +174,22 @@
 		<!-- FOOTER -->
 		<footer>
 			<div class="wrapper cf">
-			
-				<!-- widgets -->
 				<ul  class="widget-cols cf">
-					<li class="first-col">
-						
-						<div class="widget-block">
-							<h4>RECENT POSTS</h4>
-							<div class="recent-post cf">
-								<a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
-								<div class="post-head">
-									<a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2011</span>
-								</div>
-							</div>
-							<div class="recent-post cf">
-								<a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
-								<div class="post-head">
-									<a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2011</span>
-								</div>
-							</div>
-							<div class="recent-post cf">
-								<a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
-								<div class="post-head">
-									<a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2011</span>
-								</div>
-							</div>
-						</div>
-					</li>
-					
-					<li class="second-col">
-						
-						<div class="widget-block">
-							<h4>ABOUT</h4>
-							<p>Folder it's completely free this means you don't have to pay anything <a href="http://luiszuno.com/blog/license" tar >read license</a>.</p> 
-							<p>Visit <a href="http://templatecreme.com/" >Template Creme</a> and find the most beautiful free templates up to date.</p>
-						</div>
-						
-					</li>
-					
-					<li class="third-col">
-						
-						<div class="widget-block">
-							<div id="tweets" class="footer-col tweet">
-		         				<h4>TWITTER WIDGET</h4>
-		         			</div>
-		         		</div>
-		         		
-					</li>
-					
-					<li class="fourth-col">
-						
-						<div class="widget-block">
-							<h4>CATEGORIES</h4>
-							<ul>
-								<li class="cat-item"><a href="#" >Design</a></li>
-								<li class="cat-item"><a href="#" >Photo</a></li>
-								<li class="cat-item"><a href="#" >Art</a></li>
-								<li class="cat-item"><a href="#" >Game</a></li>
-								<li class="cat-item"><a href="#" >Film</a></li>
-								<li class="cat-item"><a href="#" >TV</a></li>
-							</ul>
-						</div>
-		         		
-					</li>	
+					<li class="second-col"><h4><a href="begonacarcedo.html">Begoña</a></h4></li>
+					<li class="third-col">	<h4><a href="albertofernandez.html">Alberto</a></h4></li>
+					<li class="fouth-col">	<h4><a href="arkaitzmarcos.html">Arkaitz</a></h4></li>
 				</ul>
-				<!-- ENDS widgets -->	
-				
-				
+					
 				<!-- bottom -->
 				<div class="footer-bottom">
-					<div class="left">by <a href="http://luiszuno.com" >luiszuno.com</a></div>
+					<div class="left">by <a href="http://ABAMedia.com" >ABAMedia</a></div>
 						<ul id="social-bar" class="cf sb">
-							<li><a href="http://www.facebook.com"  title="Become a fan" class="facebook">Facebbok</a></li>
+							<li><a href="http://www.facebook.com"  title="Become a fan" class="facebook">Facebok</a></li>
 							<li><a href="http://www.twitter.com" title="Follow my tweets" class="twitter"></a></li>
 							<li><a href="http://plus.google.com" title="Enter my circles" class="plus"></a></li>
 						</ul>
 				</div>	
 				<!-- ENDS bottom -->
-			
 			</div>
 		</footer>
 		<!-- ENDS FOOTER -->

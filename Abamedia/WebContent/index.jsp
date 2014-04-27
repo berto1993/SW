@@ -89,7 +89,7 @@
 			<div class="wrapper cf">
 				
 				<div id="logo">
-					   <h1>ABAMedia</h1>
+					<h1>ABAMedia</h1>
 				</div>
 				
 				<!-- nav -->
@@ -156,16 +156,8 @@
 					  <!-- REMOVED TILL FIXED <div class="button-control"><span>STOP</span></div> -->
 					</div> 
 					<!-- slider nav -->
-					
-					
-				          
 				 </div> 
 				<!-- ENDS SLIDER -->
-
-
-
-
-
 			</div>
 		</header>
 		<!-- ENDS HEADER -->
@@ -174,85 +166,55 @@
 		<div id="main">
 			<div class="wrapper cf">
 			
-
-				
-			<!-- featured -->
-			<div class="home-featured">
-			
+			<!-- portfolio content-->
+        	<div id="portfolio-content" class="cf">        	
 				<ul id="filter-buttons">
-					<li><a href="#" data-filter="*" class="selected">ver todos</a></li>
-					<li><a href="#" data-filter=".peliculas">películas</a></li>
-					<li><a href="#" data-filter=".series">series</a></li>
-					<li><a href="#" data-filter=".documentales">documentales</a></li>
-					<li><a href="#" data-filter=".animacion">animación</a></li>
+					<li><a href="#" data-filter="*" class="selected">show all</a></li>
+					<% LinkedList<tipo> listaTipo2 = consultas.getTipos();
+					tipo bt2 =new tipo();
+					for (int i=0;i<listaTipo2.size();i++){
+						bt2=listaTipo2.get(i);
+					%>
+					<li><a href="#" data-filter=".<%=bt2.getNombre() %>"><%=bt2.getNombre() %></a></li>
+					<%} %>
 				</ul>
 				
 				<!-- Filter container -->
 				<div id="filter-container" class="cf">
-					<figure class="peliculas">
-						<a href="project.html" class="thumb"><img src="img/dummies/featured/01.JPG" alt="alt" /></a>
+				<% LinkedList<String> listai2 = new LinkedList<String>();
+					produccion bp2 =new produccion();
+					LinkedList<produccion> lista2 = consultas.getProducciones();
+					for (int i=0;i<lista2.size();i++){
+						bp2=lista2.get(i);
+					%>
+					<figure class="<%=bp2.getTipo() %>">
+					<% 
+						fotograma bf2=new fotograma();
+							LinkedList<fotograma> listaFotos2 = bp2.getListaFotos();
+							for (int j=0;j<listaFotos2.size();j++){
+								bf2=listaFotos2.get(j);
+								if(bf2.getPortada()){%>
+						<a href="detalle.jsp?id_pro=<%=bp2.getIdPro() %>" class="thumb"><img src="img/dummies/featured/<%=bf2.getNombreimagen()%>.jpg" alt="alt" /></a>
+						 <%	listai2.add(bf2.getNombreimagen());%>
+						     	
+						     	<%}
+							}%>
+						
 						<figcaption>
-							<a href="project.html"><h3 class="heading">Pellentesque </h3></a>
-							Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. </figcaption>
-					</figure>
-					
-					<figure class="series">
-						<a href="project.html" class="thumb"><img src="img/dummies/featured/02.jpg" alt="alt" /></a>
-						<figcaption>
-							<a href="project.html"><h3 class="heading">Pellentesque habitant morbi</h3></a>
-							Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. </figcaption>
-					</figure>
-					
-					
-					<figure class="documentales">
-						<a href="project.html" class="thumb"><img src="img/dummies/featured/03.jpg" alt="alt" /></a>
-						<figcaption>
-							<a href="project.html" ><h3 class="heading">Habitant morbi</h3></a>
-							Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. </figcaption>
-					</figure>
-					
-					
-					<figure class="animacion">
-						<a href="project.html" class="thumb"><img src="img/dummies/featured/04.jpg" alt="alt" /></a>
-						<figcaption>
-							<a href="project.html" ><h3 class="heading">Pellentesque habitant morbi</h3></a>
-							Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. </figcaption>
+							<a href="detalle.jsp?id_pro=<%=bp2.getIdPro() %>"><h3 class="heading"><%=bp2.getTitulo() %></h3></a>
+						</figcaption>
 					</figure>
 					
 					
-					<figure class="series">
-						<a href="project.html" class="thumb"><img src="img/dummies/featured/05.jpg" alt="alt" /></a>
-						<figcaption>
-							<a href="project.html" ><h3 class="heading">Pellentesque habitant morbi</h3></a>
-							Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. </figcaption>
-					</figure>
-					
-					
-					<figure class="peliculas animacion">
-						<a href="project.html" class="thumb"><img src="img/dummies/featured/06.jpg" alt="alt" /></a>
-						<figcaption>
-							<a href="project.html" ><h3 class="heading">Pellentesque habitant morbi</h3></a>
-							Tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. </figcaption>
-					</figure>
-					
-					
-				
-					
+					<%}%>				
 				</div><!-- ENDS Filter container -->
 				
 			</div>
 			<!-- ENDS featured -->
-			
-			
-			
-			
-			</div><!-- ENDS WRAPPER -->
+			</div>
+			<!-- ENDS WRAPPER -->
 		</div>
 		<!-- ENDS MAIN -->
-		
-		
-		
-		
 		<!-- FOOTER -->
 		<footer>
 			<div class="wrapper cf">
@@ -275,12 +237,7 @@
 			</div>
 	</footer>
 		<!-- ENDS FOOTER -->
-		
-		
 		<!-- Start google map -->
 <script>initialize();</script>
 </body>
-	
-	
-	
 </html>
