@@ -89,12 +89,12 @@
 			<div class="wrapper cf">
 				
 				<div id="logo">
-					<h1><a href="index.jsp">ABAMedia</a></h1>
+					<h1>ABAMedia</h1>
 				</div>
 				
 				<!-- nav -->
 				<ul id="nav" class="sf-menu">
-					<li class="current-menu-item">INICIO</a></li>
+					<li class="current-menu-item"><a href="index.jsp">INICIO</a></li>
 					<li><a href="producciones.jsp">PRODUCCIONES</a></li>
 					<li><a href="corporativo.jsp">CORPORATIVO</a></li>
 					<li><a href="contacto.jsp">CONTACTO</a></li>
