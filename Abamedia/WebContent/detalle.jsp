@@ -121,19 +121,38 @@
         					
 					<!-- project box -->
 				<div id="project-box" class="cf">
-				
+					<% LinkedList<String> listai = new LinkedList<String>();
+					produccion bp =new produccion();
+					LinkedList<produccion> lista = consultas.getProducciones();
+					boolean enc = false;
+					int i = 0;
+					while (!enc & i<lista.size())
+					{
+						bp=lista.get(i);
+						String id_pro = "" + bp.getIdPro() + "";
+						if(request.getParameter("id_pro").equalsIgnoreCase(id_pro))
+						{
+							enc = true;
+						}
+						i++;
+					}
+					%>
 					<!-- slider -->
 					<div class="project-slider">
 				        <div class="flexslider">
 						  <ul class="slides">
 						    <li>
-						      <img src="img/dummies/slides/01.jpg" alt="alt text" />
-						    </li>
-						    <li>
-						      <img src="img/dummies/slides/02.jpg" alt="alt text" />
-						    </li>
-						    <li>
-						      <img src="img/dummies/slides/03.jpg" alt="alt text" />
+						    	<% fotograma bf=new fotograma();
+								LinkedList<fotograma> listaFotos = bp.getListaFotos();
+								for (int j=0;j<listaFotos.size();j++){
+									bf=listaFotos.get(j);
+									if(bf.getPortada()){%>
+									<img src="img/dummies/slides/<%=bf.getNombreimagen()%>.jpg" title="" alt="alt text" />
+							     	<%	listai.add(bf.getNombreimagen());%>
+							     	
+							     	<%}
+								}
+								%>
 						    </li>
 						  </ul>
 						</div>
@@ -142,23 +161,19 @@
 
 
 					<div class="info">
-	        			<p><strong>Client </strong> Mr. Tanaka</p>
-	        			<p><strong>Date </strong> April 25, 2012</p>
-	        			<p><a href="http://www.luiszuno.com" class="launch" >Launch Project</a></p>
+	        			<p><strong>Director: </strong> <%=bp.getDirector() %></p>
+	        			<p><strong>Fecha: </strong><%=bp.getFecha() %></p>
+	        			<p><strong>Genero: </strong><%=bp.getGenero() %></p>
+	        			<p><a href=<%=bp.getTrailer() %> class="launch" >Trailer</a></p>
 	        		</div>
 	        		
 	        		<!-- entry-content -->
 	        		<div class="entry-content">
 	        		
-	        			<h2 class="heading">Project Name</h2>
+	        			<h2 class="heading"><%=bp.getTitulo() %></h2>
 	        			
 	        			<div class="multicolumn">
-	        			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-	        			
-	        			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-	        			
-	        			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-	        			
+	        			<%=bp.getSinopsis() %>
 	        			</div>
 	        		</div>
 	        		<!-- ENDS entry content -->

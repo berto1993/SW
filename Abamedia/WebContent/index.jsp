@@ -120,12 +120,12 @@
 					%>
 						<li>
 						<% 
-						fotograma bf=new fotograma();
+							fotograma bf=new fotograma();
 							LinkedList<fotograma> listaFotos = bp.getListaFotos();
 							for (int j=0;j<listaFotos.size();j++){
 								bf=listaFotos.get(j);
 								if(bf.getPortada()){%>
-							 	<img src="img/dummies/slides/<%=bf.getNombreimagen()%>.jpg" title="" alt="alt" />
+								<a href="detalle.jsp?id_pro=<%=bp.getIdPro() %>" class="thumb"><img src="img/dummies/slides/<%=bf.getNombreimagen()%>.jpg" title="" alt="alt" /></a>
 						     <%	listai.add(bf.getNombreimagen());%>
 						     	
 						     	<%}
