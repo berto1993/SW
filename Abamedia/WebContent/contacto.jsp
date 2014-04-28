@@ -147,7 +147,7 @@
 				<p>Mándanos tus guiones o cortometrajes!!!!!.</p>
 				<!-- form -->
 				<script type="text/javascript" src="js/form-validation.js"></script>
-				<form id="contactForm" action="#" method="post">
+				<form id="contactForm" action="contactupload.jsp" method="POST">
 					<fieldset>
 														
 						<p>
@@ -175,7 +175,7 @@
 						<input type="hidden" value="send-mail.php" name="sendMailUrl" id="sendMailUrl" />
 						<!-- ENDS send mail configuration -->
 						
-						<p><input type="button" value="Send" name="submit" id="submit" /> <span id="error" class="warning">Mensaje</span></p>
+						<p><input type="submit" value="Enviar" name="submit" id="submit" /> <span id="error" class="warning">Mensaje</span></p>
 					</fieldset>
 					
 				</form>

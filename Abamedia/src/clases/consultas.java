@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.sql.Statement;
 
@@ -173,4 +174,20 @@ public class consultas  implements java.io.Serializable{
 	
 	    return beanUs;
 	 }
+	
+	public static void insertarContacto(String nombre, String email, String file, String comentarios) throws SQLException
+	{
+		
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+		
+	        Connection conexion = DriverManager.getConnection(
+	           "jdbc:mysql://localhost:3306/abamedia", "root", "root");
+	       Statement st = conexion.createStatement();
+	      st.executeUpdate("insert into contacto values ('"+nombre+"','"+email+"','"+file+"','"+comentarios+"')");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
 }
