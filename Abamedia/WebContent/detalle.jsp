@@ -164,10 +164,15 @@
 	        			<p><strong>Director: </strong> <%=bp.getDirector() %></p>
 	        			<p><strong>Fecha: </strong><%=bp.getFecha() %></p>
 	        			<p><strong>Genero: </strong><%=bp.getGenero() %></p>
-	        			<% if(bp.getTrailer() != null)
+	        			<% try {
+	        			if(!bp.getTrailer().equalsIgnoreCase(null))
 	        			{%>
-	        				<p><a href="<%=bp.getTrailer() %>" class="launch" >Trailer</a></p>
-	        			<%} %>
+	        				<p><a href="<%=bp.getTrailer() %>" target="_blank" class="launch" ><strong>Trailer</strong></a></p>
+	        			<%}
+	        			}catch(NullPointerException e)
+	        			{%>
+	        				<p><strong>Trailer no disponible</strong></p>
+	        			<%}%>
 	        		</div>
 	        		
 	        		<!-- entry-content -->

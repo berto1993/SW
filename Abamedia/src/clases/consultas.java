@@ -16,59 +16,59 @@ public class consultas  implements java.io.Serializable{
 
 	public static LinkedList<produccion> getProducciones()
 	{	
-	LinkedList<produccion> listaProduccion=new LinkedList<produccion>();
-	try
-    {
-		Class.forName("com.mysql.jdbc.Driver");
-        Connection conexion = DriverManager.getConnection(
-           "jdbc:mysql://localhost:3306/abamedia", "root", "root");
-       Statement st = conexion.createStatement();
-       Statement st2 = conexion.createStatement();
-       ResultSet res = st.executeQuery("select * from produccion as p "
-       		+ "inner join tipo as t on p.id_tipo=t.id_tipo "
-       		+ "inner join director as d on p.id_di=d.id_di "
-       		+ "inner join genero as g on p.id_genero=g.id_genero" );
-       while (res.next())
-       {
-    	    produccion beanPro = new produccion();
-			beanPro.setIdPro(res.getInt("id_pro"));
-			beanPro.setFecha(res.getString("fecha"));
-			beanPro.setSinopsis(res.getString("sinopsis"));
-			beanPro.setTitulo(res.getString("titulo"));
-			beanPro.setTrailer(res.getString("trailer"));
-			beanPro.setTipo(res.getString("nombre"));//tipo
-			beanPro.setDirector(res.getString("nombred"));//director
-			beanPro.setGenero(res.getString("nombreg"));//genero
-			
-			LinkedList<fotograma> listaF=new LinkedList<fotograma>();
-			ResultSet res2 =st2.executeQuery("select * from fotogramas where id_pro="+beanPro.getIdPro());
-			
-			       while (res2.next())
-			       {
-			    	   fotograma beanFot=new fotograma();
-			    	   beanFot.setNombreimagen(res2.getString("nombreimagen"));
-			    	   beanFot.setPortada(res2.getBoolean("portada"));
-			    	   listaF.add(beanFot);
-			       }
-			      
-			 beanPro.setListaFotos(listaF);
-			 
-			 listaProduccion.add(beanPro);
-			 
-			 res2.close();	
-       }
-       
-       res.close();
-       st.close();
-       conexion.close();
-    }
-    catch (Exception e)
-    {
-    	System.out.println("No se puede conectar a la base de datos.");
-    
-       e.printStackTrace();
-    }
-    return listaProduccion;
+		LinkedList<produccion> listaProduccion=new LinkedList<produccion>();
+		try
+	    {
+			Class.forName("com.mysql.jdbc.Driver");
+	        Connection conexion = DriverManager.getConnection(
+	           "jdbc:mysql://localhost:3306/abamedia", "root", "root");
+	       Statement st = conexion.createStatement();
+	       Statement st2 = conexion.createStatement();
+	       ResultSet res = st.executeQuery("select * from produccion as p "
+	       		+ "inner join tipo as t on p.id_tipo=t.id_tipo "
+	       		+ "inner join director as d on p.id_di=d.id_di "
+	       		+ "inner join genero as g on p.id_genero=g.id_genero" );
+	       while (res.next())
+	       {
+	    	    produccion beanPro = new produccion();
+				beanPro.setIdPro(res.getInt("id_pro"));
+				beanPro.setFecha(res.getString("fecha"));
+				beanPro.setSinopsis(res.getString("sinopsis"));
+				beanPro.setTitulo(res.getString("titulo"));
+				beanPro.setTrailer(res.getString("trailer"));
+				beanPro.setTipo(res.getString("nombre"));//tipo
+				beanPro.setDirector(res.getString("nombred"));//director
+				beanPro.setGenero(res.getString("nombreg"));//genero
+				
+				LinkedList<fotograma> listaF=new LinkedList<fotograma>();
+				ResultSet res2 =st2.executeQuery("select * from fotogramas where id_pro="+beanPro.getIdPro());
+				
+				       while (res2.next())
+				       {
+				    	   fotograma beanFot=new fotograma();
+				    	   beanFot.setNombreimagen(res2.getString("nombreimagen"));
+				    	   beanFot.setPortada(res2.getBoolean("portada"));
+				    	   listaF.add(beanFot);
+				       }
+				      
+				 beanPro.setListaFotos(listaF);
+				 
+				 listaProduccion.add(beanPro);
+				 
+				 res2.close();	
+	       }
+	       
+	       res.close();
+	       st.close();
+	       conexion.close();
+	    }
+	    catch (Exception e)
+	    {
+	    	System.out.println("No se puede conectar a la base de datos.");
+	    
+	       e.printStackTrace();
+	    }
+	    return listaProduccion;
     }
 	
 	public static corporativo getCorporativo()
