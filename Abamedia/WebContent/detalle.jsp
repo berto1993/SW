@@ -118,7 +118,7 @@
 			
 			<!-- portfolio content-->
         	<div id="portfolio-content" class="cf">
-        					
+        	
 					<!-- project box -->
 				<div id="project-box" class="cf">
 					<% LinkedList<String> listai = new LinkedList<String>();
@@ -164,7 +164,10 @@
 	        			<p><strong>Director: </strong> <%=bp.getDirector() %></p>
 	        			<p><strong>Fecha: </strong><%=bp.getFecha() %></p>
 	        			<p><strong>Genero: </strong><%=bp.getGenero() %></p>
-	        			<p><a href=<%=bp.getTrailer() %> class="launch" >Trailer</a></p>
+	        			<% if(bp.getTrailer() != null)
+	        			{%>
+	        				<p><a href="<%=bp.getTrailer() %>" class="launch" >Trailer</a></p>
+	        			<%} %>
 	        		</div>
 	        		
 	        		<!-- entry-content -->
