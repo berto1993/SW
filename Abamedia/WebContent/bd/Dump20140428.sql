@@ -127,7 +127,7 @@ CREATE TABLE `director` (
 
 LOCK TABLES `director` WRITE;
 /*!40000 ALTER TABLE `director` DISABLE KEYS */;
-INSERT INTO `director` VALUES (1,'Roland Emmerich'),(2,'Jon Foureau '),(3,'Brian desmand'),(4,'JJ Abrams'),(5,'Shane Acker'),(6,'Mark Andrews'),(7,NULL);
+INSERT INTO `director` VALUES (1,'Roland Emmerich'),(2,'Jon Favreau '),(3,'Robert Zemeckis'),(4,'Gene Roddenberry'),(5,'Shane Acker'),(6,'Mark Andrews'),(7,'Alfonso Cuaron');
 /*!40000 ALTER TABLE `director` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,7 +154,7 @@ CREATE TABLE `fotogramas` (
 
 LOCK TABLES `fotogramas` WRITE;
 /*!40000 ALTER TABLE `fotogramas` DISABLE KEYS */;
-INSERT INTO `fotogramas` VALUES (1,1,'01',1),(2,1,'02',1),(3,1,'03',1),(4,1,'04',1),(5,1,'05',1),(6,1,'06',1),(7,1,'07',1);
+INSERT INTO `fotogramas` VALUES (1,1,'01',1),(1,2,'012',0),(1,3,'013',0),(2,1,'02',1),(2,2,'022',0),(2,3,'023',0),(3,1,'03',1),(3,2,'032',0),(3,3,'033',0),(4,1,'04',1),(4,2,'042',0),(4,3,'043',0),(5,1,'05',1),(6,1,'06',1),(7,1,'07',1),(8,1,'08',1);
 /*!40000 ALTER TABLE `fotogramas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +169,7 @@ CREATE TABLE `genero` (
   `id_genero` int(11) NOT NULL AUTO_INCREMENT,
   `nombreg` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id_genero`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +178,7 @@ CREATE TABLE `genero` (
 
 LOCK TABLES `genero` WRITE;
 /*!40000 ALTER TABLE `genero` DISABLE KEYS */;
-INSERT INTO `genero` VALUES (1,'musical'),(2,'comedia'),(3,'accion'),(4,'drama'),(5,'suspense'),(6,'thriller'),(7,'animacion');
+INSERT INTO `genero` VALUES (1,'Musical'),(2,'Comedia'),(3,'Acción'),(4,'Drama'),(5,'Suspense'),(6,'Thriller'),(7,'Animación'),(8,'Ciencia ficción');
 /*!40000 ALTER TABLE `genero` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,7 +214,7 @@ CREATE TABLE `produccion` (
 
 LOCK TABLES `produccion` WRITE;
 /*!40000 ALTER TABLE `produccion` DISABLE KEYS */;
-INSERT INTO `produccion` VALUES (1,'2012','En el calendario de los mayas aparece señalado el año 2012 como la fecha en la que se producirá el fin del mundo, que irá acompañado de diversas catástrofes naturales: erupciones volcánicas, tifones, glaciares que inundarán el planeta.','null','2009',1,1,3),(2,'Iron Man','El multimillonario fabricante de armas Tony Stark debe enfrentarse a su turbio pasado después de sufrir un accidente con una de sus armas. Equipado con una armadura de última generación tecnológica, se convierte en Iron Man para combatir el mal a escala global.','null','2008',2,1,3),(3,'Cuento de Navidad','Ebenezer Scrooge es un hombre de negocios que sólo piensa en ganar dinero. Para él la Navidad, en sus propias palabras, es una patraña. Han pasado siete años desde la muerte de su amigo y socio y el fantasma de Nochebuena Marley le dice es durante la noche una visita de tres espíritus.','null','2000',3,1,7),(4,'El día de mañana','Las investigaciones del climatólogo Jack Hall indican que el calentamiento global podría desencadenar un repentino y catastrófico cambio climático de la Tierra. Las perforaciones realizadas en la Antártida demuestran que es algo que ya ha ocurrido hace diez mil años. Hall advierte a los dirigentes políticos de la necesidad de adoptar inmediatamente medidas para evitarlo. Pero sus advertencias llegan demasiado tarde.','null','2004',1,1,6),(5,'Star Trek','Nueva entrega de la mítica saga de Star Trek, dirigida por el creador de la serie \"Perdidos\" (Lost), donde se cuenta cómo se conocieron el capitan Kirk y Spock. Todo está preparado para el viaje inaugural de la nave más moderna que jamás se haya creado: la USS Enterprise. Su joven tripulación tiene una importante misión: encontrar una manera de detener al malvado Nero (Eric Bana), que movido por la venganza amenaza a toda la humanidad. Pero el destino de la galaxia está en manos de dos jóvenes rivales que nacieron en mundos diferentes','null','2009',4,3,5),(6,'Número 9','En un futuro muy próximo el invento conocido como la Gran Máquina activa y aporta energía a las máquinas que se han alzado contra la raza humana, diezmando a la población, antes de empezar a apagarse. El mundo pronto quedará destruido, pero un grupo de pequeños seres intenta salvar lo poco que queda de la civilización. Está compuesto por nueve criaturas a las que un científico infundió vida poco antes de la catástrofe.','null','2007',5,4,7),(7,'Brave','Cuenta la historia de la princesa Mérida, una excelente arquera que es la impetuosa hija del rey Fergus y la reina Elinor. Dispuesta a encontrar su propio camino en la vida, Mérida desafía una ancestral costumbre sagrada de los señores de la guerra.','null','2012',6,2,2);
+INSERT INTO `produccion` VALUES (1,'2012','En el calendario de los mayas aparece señalado el año 2012 como la fecha en la que se producirá el fin del mundo, que irá acompañado de diversas catástrofes naturales: erupciones volcánicas, tifones, glaciares que inundarán el planeta.','https://www.youtube.com/watch?v=9ooDeS4Ep5Q','2009',1,1,8),(2,'Iron Man','El multimillonario fabricante de armas Tony Stark debe enfrentarse a su turbio pasado después de sufrir un accidente con una de sus armas. Equipado con una armadura de última generación tecnológica, se convierte en Iron Man para combatir el mal a escala global.','https://www.youtube.com/watch?v=8hYlB38asDY','2008',2,1,3),(3,'Cuento de Navidad','Ebenezer Scrooge es un hombre de negocios que sólo piensa en ganar dinero. Para él la Navidad, en sus propias palabras, es una patraña. Han pasado siete años desde la muerte de su amigo y socio y el fantasma de Nochebuena Marley le dice es durante la noche una visita de tres espíritus.','https://www.youtube.com/watch?v=UtoPN6R_W3E','2009',3,1,7),(4,'El Día de Mañana','Las investigaciones del climatólogo Jack Hall indican que el calentamiento global podría desencadenar un repentino y catastrófico cambio climático de la Tierra. Las perforaciones realizadas en la Antártida demuestran que es algo que ya ha ocurrido hace diez mil años. Hall advierte a los dirigentes políticos de la necesidad de adoptar inmediatamente medidas para evitarlo. Pero sus advertencias llegan demasiado tarde.','https://www.youtube.com/watch?v=KzztUQFfpf8','2004',1,1,8),(5,'Star Trek','Nueva entrega de la mítica saga de Star Trek, dirigida por el creador de la serie \"Perdidos\" (Lost), donde se cuenta cómo se conocieron el capitan Kirk y Spock. Todo está preparado para el viaje inaugural de la nave más moderna que jamás se haya creado: la USS Enterprise. Su joven tripulación tiene una importante misión: encontrar una manera de detener al malvado Nero (Eric Bana), que movido por la venganza amenaza a toda la humanidad. Pero el destino de la galaxia está en manos de dos jóvenes rivales que nacieron en mundos diferentes','https://www.youtube.com/watch?v=iGAHnZ555nI','1966',4,3,8),(6,'Número 9','En un futuro muy próximo el invento conocido como la Gran Máquina activa y aporta energía a las máquinas que se han alzado contra la raza humana, diezmando a la población, antes de empezar a apagarse. El mundo pronto quedará destruido, pero un grupo de pequeños seres intenta salvar lo poco que queda de la civilización. Está compuesto por nueve criaturas a las que un científico infundió vida poco antes de la catástrofe.','https://www.youtube.com/watch?v=j5J4dexGjXY','2009',5,1,7),(7,'Brave','Cuenta la historia de la princesa Mérida, una excelente arquera que es la impetuosa hija del rey Fergus y la reina Elinor. Dispuesta a encontrar su propio camino en la vida, Mérida desafía una ancestral costumbre sagrada de los señores de la guerra.','https://www.youtube.com/watch?v=0gc36idTb3c','2012',6,1,7),(8,'Gravity','Mientras reparan un satélite fuera de su nave, dos astronautas sufren un grave accidente y quedan flotando en el espacio. Son la doctora Ryan Stone, una brillante ingeniera que realiza su primera misión espacial, y el veterano astronauta Matt Kowalsky. La misión exterior parecía rutinaria, pero una lluvia de basura espacial les alcanza y se produce el desastre: el satélite y parte de la nave quedan destrozados, dejando a Ryan y Matt completamente solos, momento a partir del cual intentarán por todos los medios buscar una solución para volver a la Tierra.','https://www.youtube.com/watch?v=MEZWseaoZc8','2013',7,1,8);
 /*!40000 ALTER TABLE `produccion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,4 +302,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-04-28 13:11:58
+-- Dump completed on 2014-04-28 23:53:28
