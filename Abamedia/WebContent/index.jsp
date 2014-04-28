@@ -89,7 +89,7 @@
 			<div class="wrapper cf">
 				
 				<div id="logo">
-					<h1>ABAMedia</h1>
+					<h1><a href="index.jsp">ABAMedia</a></h1>
 				</div>
 				
 				<!-- nav -->

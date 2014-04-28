@@ -141,19 +141,16 @@
 					<div class="project-slider">
 				        <div class="flexslider">
 						  <ul class="slides">
-						    <li>
 						    	<% fotograma bf=new fotograma();
 								LinkedList<fotograma> listaFotos = bp.getListaFotos();
-								for (int j=0;j<listaFotos.size();j++){
-									bf=listaFotos.get(j);
-									if(bf.getPortada()){%>
-									<img src="img/dummies/slides/<%=bf.getNombreimagen()%>.jpg" title="" alt="alt text" />
+								for (int j=0;j<listaFotos.size();j++)
+								{
+									bf=listaFotos.get(j);%>
+									<li>
+										<img src="img/dummies/slides/<%=bf.getNombreimagen()%>.jpg" title="" alt="alt text" />
+									</li>
 							     	<%	listai.add(bf.getNombreimagen());%>
-							     	
-							     	<%}
-								}
-								%>
-						    </li>
+								<% }%>
 						  </ul>
 						</div>
 					</div>
