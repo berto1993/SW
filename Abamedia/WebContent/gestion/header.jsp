@@ -5,6 +5,9 @@
 <meta name="generator" content="JSPMaker v1.0.0.0" />
 </head>
 <body>
+<p>Bienvenido, <%=session.getAttribute("name")%></p>
+<p><a href="logout.jsp">Logout</a>
+
 <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="10">
 	<tr align="center">
 		<td colspan="2"><span class="jspmaker"><b></b></span></td>
@@ -22,7 +25,11 @@
 			<tr><td><span class="jspmaker"><a href="produccionlist.jsp?cmd=resetall">produccion</a></span></td></tr>
 			<tr><td><span class="jspmaker"><a href="repartolist.jsp?cmd=resetall">reparto</a></span></td></tr>
 			<tr><td><span class="jspmaker"><a href="tipolist.jsp?cmd=resetall">tipo</a></span></td></tr>
+			<tr><td><span class="jspmaker"><a href="contactolist.jsp?cmd=resetall">contacto</a></span></td></tr>
+			<tr><td><span class="jspmaker"><a href="usuarioslist.jsp?cmd=resetall">usuarios</a></span></td></tr>
 		</table>
 	</td>
 	<!-- right column -->
 	<td width="80%" valign="top">
+	
+	

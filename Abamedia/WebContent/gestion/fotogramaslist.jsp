@@ -241,9 +241,6 @@ if (totalRecs > 0) {
 <a href="fotogramaslist.jsp?order=<%= java.net.URLEncoder.encode("id_f","UTF-8") %>">id f&nbsp;<% if (OrderBy != null && OrderBy.equals("id_f")) { %><span class="ewTableOrderIndicator"><% if (((String) session.getAttribute("fotogramas_OT")).equals("ASC")) { %>5<% }else if (((String) session.getAttribute("fotogramas_OT")).equals("DESC")) { %>6<% } %></span><% } %></a>
 		</td>
 		<td>
-nombreimagen&nbsp;(*)<% if (OrderBy != null && OrderBy.equals("nombreimagen")) { %><span class="ewTableOrderIndicator"><% if (((String) session.getAttribute("fotogramas_OT")).equals("ASC")) { %>5<% }else if (((String) session.getAttribute("fotogramas_OT")).equals("DESC")) { %>6<% } %></span><% } %>
-		</td>
-		<td>
 <a href="fotogramaslist.jsp?order=<%= java.net.URLEncoder.encode("portada","UTF-8") %>">portada&nbsp;<% if (OrderBy != null && OrderBy.equals("portada")) { %><span class="ewTableOrderIndicator"><% if (((String) session.getAttribute("fotogramas_OT")).equals("ASC")) { %>5<% }else if (((String) session.getAttribute("fotogramas_OT")).equals("DESC")) { %>6<% } %></span><% } %></a>
 		</td>
 </tr>
@@ -325,17 +322,13 @@ if (x_id_pro!=null && ((String)x_id_pro).length() > 0) {
 %>
 &nbsp;</td>
 		<td><% out.print(x_id_f); %>&nbsp;</td>
-		<td><% if (x_nombreimagen != null && ((String)x_nombreimagen).length() > 0) { %>
-<a href="<%= x_nombreimagen %>" target="blank"><%= x_nombreimagen %></a>
-<% } %>
-&nbsp;</td>
 		<td><%
 String [] ar_x_portada= x_portada.split(",");
 String tmpfld_x_portada = "";
 for (int i = 0; i < ar_x_portada.length;i++){
 	String value = ar_x_portada[i].trim();
 	if (value.equals("1")){
-		tmpfld_x_portada += "w" + ",";
+		tmpfld_x_portada += "1" + ",";
 	}
 }
 if (tmpfld_x_portada.length() > 0) { tmpfld_x_portada = tmpfld_x_portada.substring(0, tmpfld_x_portada.length()-1); }

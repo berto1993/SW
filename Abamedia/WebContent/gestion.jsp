@@ -112,16 +112,11 @@
 			<!-- page content-->
         	<div id="page-content" class="cf">        	
 	        		
-	        	
-	        	
-				
-				
-				
 				<p><h3>Sign In</h3></p>
 				<p>Accede a la gestión</p>
 				<!-- form -->
-				<script type="text/javascript" src="js/form-validation.js"></script>
-				<form name="signIn" action="LogIn" method="POST">
+			
+				<form name="signIn" action="login.jsp" method="POST">
 					<fieldset>
 														
 						<p>
@@ -135,11 +130,11 @@
 						</p>
 						
 					
-						<p><input type="submit" value="Acceder" name="submit" id="submit" /> <span id="error" class="warning">Mensaje</span></p>
+						<p><input type="submit" value="Acceder" name="submit" id="submit" /></p>
 					</fieldset>
 					
 				</form>
-				<p id="sent-form-msg" class="success">Formulario enviado.Gracias..</p>
+			
 				<!-- ENDS form -->				
 				
     		</div>
@@ -177,8 +172,7 @@
 	</footer>
 		<!-- ENDS FOOTER -->
 		
-		<!-- Start google map -->
-		<script>initialize();</script>
+	
 	
 	</body>
 	

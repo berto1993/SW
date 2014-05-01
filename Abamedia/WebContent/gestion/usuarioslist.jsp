@@ -34,13 +34,13 @@ if (request.getParameter("cmd") != null && request.getParameter("cmd").length() 
 	String cmd = request.getParameter("cmd");
 	if (cmd.toUpperCase().equals("RESET")) {
 		searchwhere = ""; // Reset search criteria
-		session.setAttribute("reparto_searchwhere", searchwhere);
+		session.setAttribute("usuarios_searchwhere", searchwhere);
 	}else if (cmd.toUpperCase().equals("RESETALL")) {
 		searchwhere = ""; // Reset search criteria
-		session.setAttribute("reparto_searchwhere", searchwhere);
+		session.setAttribute("usuarios_searchwhere", searchwhere);
 	}
 	startRec = 1; // Reset start record counter (reset command)
-	session.setAttribute("reparto_REC", new Integer(startRec));
+	session.setAttribute("usuarios_REC", new Integer(startRec));
 }
 
 // Build dbwhere
@@ -66,24 +66,24 @@ String DefaultFilter = "";
 // Check for an Order parameter
 String OrderBy = request.getParameter("order");
 if (OrderBy != null && OrderBy.length() > 0) {
-	if (session.getAttribute("reparto_OB") != null &&
-		((String) session.getAttribute("reparto_OB")).equals(OrderBy)) { // Check if an ASC/DESC toggle is required
-		if (((String) session.getAttribute("reparto_OT")).equals("ASC")) {
-			session.setAttribute("reparto_OT", "DESC");
+	if (session.getAttribute("usuarios_OB") != null &&
+		((String) session.getAttribute("usuarios_OB")).equals(OrderBy)) { // Check if an ASC/DESC toggle is required
+		if (((String) session.getAttribute("usuarios_OT")).equals("ASC")) {
+			session.setAttribute("usuarios_OT", "DESC");
 		}else{
-			session.setAttribute("reparto_OT", "ASC");
+			session.setAttribute("usuarios_OT", "ASC");
 		}
 	}else{
-		session.setAttribute("reparto_OT", "ASC");
+		session.setAttribute("usuarios_OT", "ASC");
 	}
-	session.setAttribute("reparto_OB", OrderBy);
-	session.setAttribute("reparto_REC", new Integer(1));
+	session.setAttribute("usuarios_OB", OrderBy);
+	session.setAttribute("usuarios_REC", new Integer(1));
 }else{
-	OrderBy = (String) session.getAttribute("reparto_OB");
+	OrderBy = (String) session.getAttribute("usuarios_OB");
 	if (OrderBy == null || OrderBy.length() == 0) {
 		OrderBy = DefaultOrder;
-		session.setAttribute("reparto_OB", OrderBy);
-		session.setAttribute("reparto_OT", DefaultOrderType);
+		session.setAttribute("usuarios_OB", OrderBy);
+		session.setAttribute("usuarios_OT", DefaultOrderType);
 	}
 }
 
@@ -93,7 +93,7 @@ Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet
 ResultSet rs = null;
 
 // Build SQL
-String strsql = "SELECT * FROM `reparto`";
+String strsql = "SELECT * FROM `usuarios`";
 whereClause = "";
 if (DefaultFilter.length() > 0) {
 	whereClause = whereClause + "(" + DefaultFilter + ") AND ";
@@ -108,7 +108,7 @@ if (whereClause.length() > 0) {
 	strsql = strsql + " WHERE " + whereClause;
 }
 if (OrderBy != null && OrderBy.length() > 0) {
-	strsql = strsql + " ORDER BY `" + OrderBy + "` " + (String) session.getAttribute("reparto_OT");
+	strsql = strsql + " ORDER BY `" + OrderBy + "` " + (String) session.getAttribute("usuarios_OT");
 }
 
 //out.println(strsql);
@@ -122,7 +122,7 @@ int pageno = 0;
 // Check for a START parameter
 if (request.getParameter("start") != null && Integer.parseInt(request.getParameter("start")) > 0) {
 	startRec = Integer.parseInt(request.getParameter("start"));
-	session.setAttribute("reparto_REC", new Integer(startRec));
+	session.setAttribute("usuarios_REC", new Integer(startRec));
 }else if (request.getParameter("pageno") != null && Integer.parseInt(request.getParameter("pageno")) > 0) {
 	pageno = Integer.parseInt(request.getParameter("pageno"));
 	if (IsNumeric(request.getParameter("pageno"))) {
@@ -132,25 +132,25 @@ if (request.getParameter("start") != null && Integer.parseInt(request.getParamet
 		}else if (startRec >= ((totalRecs-1)/displayRecs)*displayRecs+1) {
 			startRec =  ((totalRecs-1)/displayRecs)*displayRecs+1;
 		}
-		session.setAttribute("reparto_REC", new Integer(startRec));
+		session.setAttribute("usuarios_REC", new Integer(startRec));
 	}else {
-		startRec = ((Integer) session.getAttribute("reparto_REC")).intValue();
+		startRec = ((Integer) session.getAttribute("usuarios_REC")).intValue();
 		if (startRec <= 0) {
 			startRec = 1; // Reset start record counter
-			session.setAttribute("reparto_REC", new Integer(startRec));
+			session.setAttribute("usuarios_REC", new Integer(startRec));
 		}
 	}
 }else{
-	if (session.getAttribute("reparto_REC") != null)
-		startRec = ((Integer) session.getAttribute("reparto_REC")).intValue();
+	if (session.getAttribute("usuarios_REC") != null)
+		startRec = ((Integer) session.getAttribute("usuarios_REC")).intValue();
 	if (startRec==0) {
 		startRec = 1; //Reset start record counter
-		session.setAttribute("reparto_REC", new Integer(startRec));
+		session.setAttribute("usuarios_REC", new Integer(startRec));
 	}
 }
 %>
 <%@ include file="header.jsp" %>
-<p><span class="jspmaker">TABLE: reparto</span></p>
+<p><span class="jspmaker">TABLE: usuarios</span></p>
 <span class="jspmaker">
 <%
 boolean isPrev, rsEof, isMore;
@@ -166,7 +166,7 @@ if (totalRecs > 0) {
 		isPrev = true;
 		int PrevStart = startRec - displayRecs;
 		if (PrevStart < 1) { PrevStart = 1; } %>
-	<a href="repartolist.jsp?start=<%=PrevStart%>"><b>Prev</b></a>
+	<a href="usuarioslist.jsp?start=<%=PrevStart%>"><b>Prev</b></a>
 	<%
 	}
 	if (isPrev || (!rsEof)) {
@@ -187,19 +187,19 @@ if (totalRecs > 0) {
 				if (startRec == x) { %>
 	<b><%=y%></b>
 				<%	}else{ %>
-	<a href="repartolist.jsp?start=<%=x%>"><b><%=y%></b></a>
+	<a href="usuarioslist.jsp?start=<%=x%>"><b><%=y%></b></a>
 				<%	}
 				x += displayRecs;
 				y ++;
 			}else if (x >= (dx1-displayRecs*recRange) && x <= (dx2+displayRecs*recRange)) {
 				if ((x+recRange*displayRecs) < totalRecs) { %>
-	<a href="repartolist.jsp?start=<%=x%>"><b><%=y%>-<%=y+recRange-1%></b></a>
+	<a href="usuarioslist.jsp?start=<%=x%>"><b><%=y%>-<%=y+recRange-1%></b></a>
 				<% }else{
 					int ny= (totalRecs-1)/displayRecs+1;
 					if (ny == y) { %>
-	<a href="repartolist.jsp?start=<%=x%>"><b><%=y%></b></a>
+	<a href="usuarioslist.jsp?start=<%=x%>"><b><%=y%></b></a>
 					<% }else{ %>
-	<a href="repartolist.jsp?start=<%=x%>"><b><%=y%>-<%=ny%></b></a>
+	<a href="usuarioslist.jsp?start=<%=x%>"><b><%=y%>-<%=ny%></b></a>
 					<% }
 				}
 				x+=recRange*displayRecs;
@@ -215,7 +215,7 @@ if (totalRecs > 0) {
 	if (!rsEof) {
 		int NextStart = startRec + displayRecs;
 		isMore = true; %>
-	<a href="repartolist.jsp?start=<%=NextStart%>"><b>Next</b></a>
+	<a href="usuarioslist.jsp?start=<%=NextStart%>"><b>Next</b></a>
 	<% }else{
 		isMore = false;
 	} %>
@@ -235,15 +235,11 @@ if (totalRecs > 0) {
 <table class="ewTable">
 	<tr class="ewTableHeader">
 		<td>
-<a href="repartolist.jsp?order=<%= java.net.URLEncoder.encode("id_pro","UTF-8") %>">id pro&nbsp;<% if (OrderBy != null && OrderBy.equals("id_pro")) { %><span class="ewTableOrderIndicator"><% if (((String) session.getAttribute("reparto_OT")).equals("ASC")) { %>5<% }else if (((String) session.getAttribute("reparto_OT")).equals("DESC")) { %>6<% } %></span><% } %></a>
+<a href="usuarioslist.jsp?order=<%= java.net.URLEncoder.encode("name","UTF-8") %>">name&nbsp;(*)<% if (OrderBy != null && OrderBy.equals("name")) { %><span class="ewTableOrderIndicator"><% if (((String) session.getAttribute("usuarios_OT")).equals("ASC")) { %>5<% }else if (((String) session.getAttribute("usuarios_OT")).equals("DESC")) { %>6<% } %></span><% } %></a>
 		</td>
 		<td>
-<a href="repartolist.jsp?order=<%= java.net.URLEncoder.encode("id_actor","UTF-8") %>">id actor&nbsp;<% if (OrderBy != null && OrderBy.equals("id_actor")) { %><span class="ewTableOrderIndicator"><% if (((String) session.getAttribute("reparto_OT")).equals("ASC")) { %>5<% }else if (((String) session.getAttribute("reparto_OT")).equals("DESC")) { %>6<% } %></span><% } %></a>
+<a href="usuarioslist.jsp?order=<%= java.net.URLEncoder.encode("password","UTF-8") %>">password&nbsp;(*)<% if (OrderBy != null && OrderBy.equals("password")) { %><span class="ewTableOrderIndicator"><% if (((String) session.getAttribute("usuarios_OT")).equals("ASC")) { %>5<% }else if (((String) session.getAttribute("usuarios_OT")).equals("DESC")) { %>6<% } %></span><% } %></a>
 		</td>
-		<td>
-<a href="repartolist.jsp?order=<%= java.net.URLEncoder.encode("nombrepersonaje","UTF-8") %>">nombrepersonaje&nbsp;(*)<% if (OrderBy != null && OrderBy.equals("nombrepersonaje")) { %><span class="ewTableOrderIndicator"><% if (((String) session.getAttribute("reparto_OT")).equals("ASC")) { %>5<% }else if (((String) session.getAttribute("reparto_OT")).equals("DESC")) { %>6<% } %></span><% } %></a>
-		</td>
-<td>&nbsp;</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 </tr>
@@ -282,80 +278,35 @@ while (rs.next() && recCount < stopRec) {
 	}
 %>
 <%
-	String x_id_pro = "";
-	String x_id_actor = "";
-	String x_nombrepersonaje = "";
+	String x_name = "";
+	String x_password = "";
 
 	// Load Key for record
 	String key = "";
-	if(rs.getString("nombrepersonaje") != null){
-		key = rs.getString("nombrepersonaje");
+	if(rs.getString("password") != null){
+		key = rs.getString("password");
 	}
 
-	// id_pro
-	x_id_pro = String.valueOf(rs.getLong("id_pro"));
-
-	// id_actor
-	x_id_actor = String.valueOf(rs.getLong("id_actor"));
-
-	// nombrepersonaje
-	if (rs.getString("nombrepersonaje") != null){
-		x_nombrepersonaje = rs.getString("nombrepersonaje");
+	// name
+	if (rs.getString("name") != null){
+		x_name = rs.getString("name");
 	}else{
-		x_nombrepersonaje = "";
+		x_name = "";
+	}
+
+	// password
+	if (rs.getString("password") != null){
+		x_password = rs.getString("password");
+	}else{
+		x_password = "";
 	}
 %>
 	<tr class="<%= rowclass %>">
-		<td><%
-if (x_id_pro!=null && ((String)x_id_pro).length() > 0) {
-	String sqlwrk_where = "";
-	sqlwrk_where = "`id_pro` = " + x_id_pro;
-	String sqlwrk = "SELECT DISTINCT `id_pro`, `titulo` FROM `produccion`";
-	if (sqlwrk_where.length() > 0) {
-	sqlwrk += " WHERE " + sqlwrk_where;
-	}
-	Statement stmtwrk = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-	ResultSet rswrk = stmtwrk.executeQuery(sqlwrk);
-	if (rswrk.next()) {
-		out.print(rswrk.getString("titulo"));
-	}
-	rswrk.close();
-	rswrk = null;
-	stmtwrk.close();
-	stmtwrk = null;
-}
-%>
-&nbsp;</td>
-		<td><%
-if (x_id_actor!=null && ((String)x_id_actor).length() > 0) {
-	String sqlwrk_where = "";
-	sqlwrk_where = "`id_actor` = " + x_id_actor;
-	String sqlwrk = "SELECT DISTINCT `id_actor`, `nombrea` FROM `actor`";
-	if (sqlwrk_where.length() > 0) {
-	sqlwrk += " WHERE " + sqlwrk_where;
-	}
-	Statement stmtwrk = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-	ResultSet rswrk = stmtwrk.executeQuery(sqlwrk);
-	if (rswrk.next()) {
-		out.print(rswrk.getString("nombrea"));
-	}
-	rswrk.close();
-	rswrk = null;
-	stmtwrk.close();
-	stmtwrk = null;
-}
-%>
-&nbsp;</td>
-		<td><% out.print(x_nombrepersonaje); %>&nbsp;</td>
-<td><span class="jspmaker"><a href="<% key =  rs.getString("nombrepersonaje"); 
+		<td><% out.print(x_name); %>&nbsp;</td>
+		<td><% out.print(x_password); %>&nbsp;</td>
+<td><span class="jspmaker"><a href="<% key =  rs.getString("password"); 
 if (key != null && key.length() > 0) { 
-	out.print("repartoview.jsp?key=" + java.net.URLEncoder.encode(key,"UTF-8"));
-}else{
-	out.print("javascript:alert('Invalid Record! Key is null');");
-} %>">View</a></span></td>
-<td><span class="jspmaker"><a href="<% key =  rs.getString("nombrepersonaje"); 
-if (key != null && key.length() > 0) { 
-	out.print("repartoedit.jsp?key=" + java.net.URLEncoder.encode(key,"UTF-8"));
+	out.print("usuariosedit.jsp?key=" + java.net.URLEncoder.encode(key,"UTF-8"));
 }else{
 	out.print("javascript:alert('Invalid Record! Key is null');");
 } %>">Edit</a></span></td>
@@ -369,7 +320,7 @@ if (key != null && key.length() > 0) {
 %>
 </table>
 <% if (recActual > 0) { %>
-<p><input type="button" name="btndelete" value="DELETE SELECTED" onClick="this.form.action='repartodelete.jsp';this.form.submit();"></p>
+<p><input type="button" name="btndelete" value="DELETE SELECTED" onClick="this.form.action='usuariosdelete.jsp';this.form.submit();"></p>
 <% } %>
 </form>
 <%
