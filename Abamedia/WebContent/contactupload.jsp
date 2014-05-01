@@ -9,7 +9,7 @@
 <%
 		String  nombre= (String)request.getParameter("name");
 		String email = (String)request.getParameter("email");	
-		String coment = (String)request.getParameter("coments");
+		String coment = (String)request.getParameter("comments");
 
 		try {
 			consultas.insertarContacto(nombre, email, "sdfa", coment);
