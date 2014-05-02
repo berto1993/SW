@@ -22,7 +22,7 @@ public class consultas  implements java.io.Serializable{
 	    {
 			Class.forName("com.mysql.jdbc.Driver");
 	        Connection conexion = DriverManager.getConnection(
-	           "jdbc:mysql://localhost:3306/abamedia", "root", "00650065");
+	           "jdbc:mysql://localhost:3306/abamedia", "root", "root");
 	       Statement st = conexion.createStatement();
 	       Statement st2 = conexion.createStatement();
 	       ResultSet res = st.executeQuery("select * from produccion as p "
@@ -78,7 +78,7 @@ public class consultas  implements java.io.Serializable{
 		try
 	    {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/abamedia", "root", "00650065");
+			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/abamedia", "root", "root");
 			Statement st = conexion.createStatement();
 			ResultSet res = st.executeQuery("select * from corporativo" );
 			while (res.next())
@@ -123,7 +123,7 @@ public class consultas  implements java.io.Serializable{
 		try
 	    {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/abamedia", "root", "00650065");
+			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/abamedia", "root", "root");
 			Statement st = conexion.createStatement();
 			ResultSet res = st.executeQuery("select * from tipo" );
 			while (res.next())
@@ -182,7 +182,7 @@ public class consultas  implements java.io.Serializable{
 				Class.forName("com.mysql.jdbc.Driver");
 		
 	        Connection conexion = DriverManager.getConnection(
-	           "jdbc:mysql://localhost:3306/abamedia", "root", "00650065");
+	           "jdbc:mysql://localhost:3306/abamedia", "root", "root");
 	       Statement st = conexion.createStatement();
 	      st.executeUpdate("insert into contacto values ('"+nombre+"','"+email+"','"+file+"','"+comentarios+"')");
 			} catch (ClassNotFoundException e) {

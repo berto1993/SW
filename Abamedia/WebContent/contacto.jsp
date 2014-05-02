@@ -147,7 +147,7 @@
 				<p>Mándanos tus guiones o cortometrajes!!!!!.</p>
 				<!-- form -->
 				<script type="text/javascript" src="js/form-validation.js"></script>
-				<form id="contactForm" action="contactupload.jsp" method="POST">
+				<form id="contactForm" enctype="multipart/form-data" action="UploadServlet" method="POST">
 					<fieldset>
 														
 						<p>
@@ -159,15 +159,18 @@
 							<label for="email" >Email</label>
 							<input name="email"  id="email" type="text" class="form-poshytip" title="Enter your email address" />
 						</p>
+						
+							<p>
+							<label for="comments">Comentarios</label>
+							<textarea  name="comments"  id="comments" rows="5" cols="20" class="form-poshytip" title="Enter your comments"></textarea>
+						</p>
+						
 						<p>
 							<label for="fichero" >Fichero</label>
 							<input type="file" class="form-poshytip" name="file" title="Mándanos tus creaciones" />
 						</p>
 						
-						<p>
-							<label for="comments">Comentarios</label>
-							<textarea  name="comments"  id="comments" rows="5" cols="20" class="form-poshytip" title="Enter your comments"></textarea>
-						</p>
+					
 						
 						<!-- send mail configuration -->
 						<input type="hidden" value="your@email.com" name="to" id="to" />
