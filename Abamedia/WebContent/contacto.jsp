@@ -146,18 +146,17 @@
 				<p><h3>Formulario de Contacto</h3></p>
 				<p>Mándanos tus guiones o cortometrajes!!!!!.</p>
 				<!-- form -->
-				<script type="text/javascript" src="js/form-validation.js"></script>
 				<form id="contactForm" enctype="multipart/form-data" action="UploadServlet" method="POST">
 					<fieldset>
 														
 						<p>
 							<label for="name" >Nombre</label>
-							<input name="name"  id="name" type="text" class="form-poshytip" title="Enter your full name" />
+							<input name="name"  id="name" type="text" class="form-poshytip" title="Enter your full name" required>
 						</p>
 						
 						<p>
 							<label for="email" >Email</label>
-							<input name="email"  id="email" type="text" class="form-poshytip" title="Enter your email address" />
+							<input name="email"  id="email" type="text" class="form-poshytip" title="Enter your email address" required>
 						</p>
 						
 							<p>
@@ -167,7 +166,7 @@
 						
 						<p>
 							<label for="fichero" >Fichero</label>
-							<input type="file" class="form-poshytip" name="file" title="Mándanos tus creaciones" />
+							<input type="file" class="form-poshytip" name="file" title="Mándanos tus creaciones" required>
 						</p>
 						
 					
