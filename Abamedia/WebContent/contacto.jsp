@@ -146,7 +146,7 @@
 				<p><h3>Formulario de Contacto</h3></p>
 				<p>Mándanos tus guiones o cortometrajes!!!!!.</p>
 				<!-- form -->
-				<form id="contactForm" enctype="multipart/form-data" action="UploadServlet" method="post">
+			<form id="contactForm" enctype="multipart/form-data" action="UploadServlet" method="POST">
 					<fieldset>
 														
 						<p>
@@ -177,6 +177,11 @@
 				<%if(session.getAttribute("form")=="enviado"){ %>
 	
 	<p id="sent-form-msg" class="success">Formulario enviado.Estudiaremos la propuesta y nos pondremos en contacto contigo.Gracias.</p>
+	
+<%}%>
+		<%if(session.getAttribute("form")=="noenviado"){ %>
+	
+	<p id="sent-form-msg" class="success">El formulario no se ha podido enviar correctamente.Inténtelo de nuevo por favor.</p>
 	
 <%}%>
 				
