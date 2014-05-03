@@ -12,10 +12,13 @@ usuario user = consultas.comprobarUsuarioCon(nombre,contra);
 
 if(user == null)
 {
+	session.setAttribute("logeado","no"); 
 	response.sendRedirect("gestion.jsp"); 
 	
 	}else{
+		session.setAttribute("logeado","si"); 
 		session.setAttribute("name",nombre);
 		response.sendRedirect("gestion/index.jsp");
 	}
 %>
+

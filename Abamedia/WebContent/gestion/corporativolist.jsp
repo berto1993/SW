@@ -150,7 +150,7 @@ if (request.getParameter("start") != null && Integer.parseInt(request.getParamet
 }
 %>
 <%@ include file="header.jsp" %>
-<p><span class="jspmaker">TABLE: corporativo</span></p>
+<p><span class="jspmaker">Tabla: corporativo</span></p>
 <table border="0" cellspacing="0" cellpadding="4">
 	<tr>
 		<td><span class="jspmaker"><a href="corporativoadd.jsp">Add</a></span></td>

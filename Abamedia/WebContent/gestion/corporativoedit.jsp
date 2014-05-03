@@ -507,7 +507,7 @@ try{
 }
 %>
 <%@ include file="header.jsp" %>
-<p><span class="jspmaker">Edit TABLE: corporativo<br><br><a href="corporativolist.jsp">Back to List</a></span></p>
+<p><span class="jspmaker">Edit Tabla: corporativo<br><br><a href="corporativolist.jsp">Back to List</a></span></p>
 <script language="JavaScript" src="ew.js"></script>
 <script language="JavaScript">
 <!-- start Javascript

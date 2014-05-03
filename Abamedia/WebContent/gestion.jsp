@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="javax.servlet.*"%>
+<%@ page import="java.io.*" %>
 <!doctype html> 
 <html class="no-js">
 
@@ -94,7 +95,7 @@
 					<li><a href="producciones.jsp">PRODUCCIONES</a></li>
 					<li><a href="corporativo.jsp">CORPORATIVO</a></li>
 					<li><a href="contacto.jsp">CONTACTO</a></li>
-					<li class="current-menu-item"><a href="gestion.jsp">GESTI�N</a></li>
+					<li class="current-menu-item"><a href="gestion.jsp">GESTIÓN</a></li>
 				</ul>
 				<div id="combo-holder"></div>
 				<!-- ends nav -->
@@ -113,7 +114,7 @@
         	<div id="page-content" class="cf">        	
 	        		
 				<p><h3>Sign In</h3></p>
-				<p>Accede a la gesti�n</p>
+				<p>Accede a la gestión</p>
 				<!-- form -->
 		
 				<form name="signIn" action="login.jsp" method="POST">
@@ -126,13 +127,19 @@
 						
 						<p>
 							<label for="password" >Password</label>
-							<input name="password"  id="password" type="password" class="form-poshytip" title="Introduce tu contrase�a" required/>
+							<input name="password"  id="password" type="password" class="form-poshytip" title="Introduce tu contraseña" required/>
 						</p>
 						
 					
 						<p><input type="submit" value="Acceder" name="submit" id="submit" /></p>
+
+<%if(session.getAttribute("logeado")=="no"){ %>
+	
+	<p>El nombre de usuario o la contraseña son erróneas.Inténtelo de nuevo por favor.</p>
+	
+<%}%>
 					</fieldset>
-					
+
 				</form>
 			
 				<!-- ENDS form -->				
@@ -152,7 +159,7 @@
 		<footer>
 			<div class="wrapper cf">
             <ul  class="widget-cols cf">
-           <li class="second-col"><h4><a href="begonacarcedo.html">Bego�a</a></h4></li>
+           <li class="second-col"><h4><a href="begonacarcedo.html">Begoña</a></h4></li>
 					 <li class="third-col">	<h4><a href="albertofernandez.html">Alberto</a></h4></li>
 					 <li class="fouth-col">	<h4><a href="arkaitzmarcos.html">Arkaitz</a></h4></li>
              </ul>

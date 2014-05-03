@@ -5,26 +5,28 @@
 <meta name="generator" content="JSPMaker v1.0.0.0" />
 </head>
 <body>
+<div align="right">
 <%if(session.getAttribute("name")!=null){%>
-<p>Bienvenido, <%=session.getAttribute("name")%></p>
-<p><a href="logout.jsp">Logout</a>
+<div align="center"><h1>WEB DE GESTIÓN DE ABAMEDIA</h1></div>
+<div align="right">
+<p>Bienvenido , <%=session.getAttribute("name")%> || <a href="logout.jsp">Logout</a>
 <%}else{
 	response.sendRedirect("../gestion.jsp");
 }%>
-
-<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="10">
-	<tr align="center">
+</div>
+<table  width="100%" height="100%" border="0" cellspacing="0" cellpadding="10">
+	<tr class="columleft" align="center">
 		<td colspan="2"><span class="jspmaker"><b></b></span></td>
 	</tr>
-<tr>
+<tr class="columleft">
 	<!-- left column -->
-	<td width="20%" height="100%" valign="top">
-		<table width="100%" border="0" cellspacing="0" cellpadding="2">
+	<td class="menu" width="20%" height="100%" valign="top">
+		<table  width="100%" border="0" cellspacing="0" cellpadding="2">
 			<tr><td><span class="jspmaker"><b></b></span></td></tr>
 			<tr><td><span class="jspmaker"><a href="actorlist.jsp?cmd=resetall">actor</a></span></td></tr>
 			<tr><td><span class="jspmaker"><a href="corporativolist.jsp?cmd=resetall">corporativo</a></span></td></tr>
 			<tr><td><span class="jspmaker"><a href="directorlist.jsp?cmd=resetall">director</a></span></td></tr>
-			<tr><td><span class="jspmaker"><a href="fotogramaslist.jsp?cmd=resetall">fotogramas</a></span></td></tr>
+
 			<tr><td><span class="jspmaker"><a href="generolist.jsp?cmd=resetall">genero</a></span></td></tr>
 			<tr><td><span class="jspmaker"><a href="produccionlist.jsp?cmd=resetall">produccion</a></span></td></tr>
 			<tr><td><span class="jspmaker"><a href="repartolist.jsp?cmd=resetall">reparto</a></span></td></tr>

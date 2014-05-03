@@ -1,4 +1,5 @@
 <%
+session.setAttribute("login", null);
 session.setAttribute("name", null);
 session.invalidate();
 %>

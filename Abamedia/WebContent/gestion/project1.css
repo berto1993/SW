@@ -1,37 +1,41 @@
 body {
-	background-color: ; /* background color */
-	color: ; /* text color */
-	font-family: ; /* font name */
+	background-color: #DAD6FE; /* background color */
 	font-size: medium; /* font size */
 	margin: 0px 0px 0px 0px; /* top right bottom left */
 }
 
 .jspmaker {
 	color: ; /* text color */
-	font-family: ; /* font name */
+	font-family:'Helvetica','Verdana','Monaco',sans-serif;
 	font-size: medium; /* font size */	
 }
-
+.columleft {
+	background-color:#F4F4FF;
+}
+.menu {
+	background-color:#E2E2E2;
+}
 input, textarea, select {	
 	font-family: ; /* font name */
 	font-size: medium; /* font size */
 } 
 
-a:active {
-	color: ; /* active link color */
+a:hover{
+	color: #000033;
+	 text-decoration: underline;
 }
-
 a:link {
-	color: ; /* link color */
+	color: #333399; /* link color */
+	text-decoration:none;   
 }
 
 a:visited {
-	color: ; /* visited link color */
+	color: #333399; /* link color */
 }
 
 /* main table */
 .ewTable {
-	width: ; /* table width */	
+	width: 50%; /* table width */	
 	color: ; /* text color */
 	font-family: ; /* font name */
 	font-size: medium; /* font size */
