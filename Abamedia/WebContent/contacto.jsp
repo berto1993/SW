@@ -146,7 +146,7 @@
 				<p><h3>Formulario de Contacto</h3></p>
 				<p>Mándanos tus guiones o cortometrajes!!!!!.</p>
 				<!-- form -->
-				<form id="contactForm" enctype="multipart/form-data" action="UploadServlet" method="POST">
+				<form id="contactForm" enctype="multipart/form-data" action="UploadServlet" method="post">
 					<fieldset>
 														
 						<p>
@@ -161,27 +161,27 @@
 						
 							<p>
 							<label for="comments">Comentarios</label>
-							<textarea  name="comments"  id="comments" rows="5" cols="20" class="form-poshytip" title="Enter your comments"></textarea>
+							<textarea  name="comments"  id="comments" rows="5" cols="20" class="form-poshytip" title="Enter your comments" required></textarea>
 						</p>
 						
 						<p>
 							<label for="fichero" >Fichero</label>
 							<input type="file" class="form-poshytip" name="file" title="Mándanos tus creaciones" required>
 						</p>
-						
-					
-						
-						<!-- send mail configuration -->
-						<input type="hidden" value="your@email.com" name="to" id="to" />
-						<input type="hidden" value="ENter the subject here" name="subject" id="subject" />
-						<input type="hidden" value="send-mail.php" name="sendMailUrl" id="sendMailUrl" />
-						<!-- ENDS send mail configuration -->
-						
-						<p><input type="submit" value="Enviar" name="submit" id="submit" /> <span id="error" class="warning">Mensaje</span></p>
+		
+						<p><input type="submit" value="Enviar" name="submit" id="submit" /> </p>
 					</fieldset>
 					
 				</form>
-				<p id="sent-form-msg" class="success">Formulario enviado.Gracias..</p>
+				
+				<%if(session.getAttribute("form")=="enviado"){ %>
+	
+	<p id="sent-form-msg" class="success">Formulario enviado.Estudiaremos la propuesta y nos pondremos en contacto contigo.Gracias.</p>
+	
+<%}%>
+				
+				
+				
 				<!-- ENDS form -->				
 				
     		</div>

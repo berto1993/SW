@@ -1,6 +1,5 @@
 package clases;
 
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,6 +13,7 @@ public class consultas  implements java.io.Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 
 	public static LinkedList<produccion> getProducciones()
 	{	
@@ -22,7 +22,7 @@ public class consultas  implements java.io.Serializable{
 	    {
 			Class.forName("com.mysql.jdbc.Driver");
 	        Connection conexion = DriverManager.getConnection(
-	           "jdbc:mysql://localhost:3306/abamedia", "root", "root");
+	           "jdbc:mysql://localhost:3306/abamedia", "root", "00650065");
 	       Statement st = conexion.createStatement();
 	       Statement st2 = conexion.createStatement();
 	       ResultSet res = st.executeQuery("select * from produccion as p "
@@ -78,7 +78,7 @@ public class consultas  implements java.io.Serializable{
 		try
 	    {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/abamedia", "root", "root");
+			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/abamedia", "root", "00650065");
 			Statement st = conexion.createStatement();
 			ResultSet res = st.executeQuery("select * from corporativo" );
 			while (res.next())
@@ -123,7 +123,7 @@ public class consultas  implements java.io.Serializable{
 		try
 	    {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/abamedia", "root", "root");
+			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/abamedia", "root", "00650065");
 			Statement st = conexion.createStatement();
 			ResultSet res = st.executeQuery("select * from tipo" );
 			while (res.next())
@@ -182,9 +182,9 @@ public class consultas  implements java.io.Serializable{
 				Class.forName("com.mysql.jdbc.Driver");
 		
 	        Connection conexion = DriverManager.getConnection(
-	           "jdbc:mysql://localhost:3306/abamedia", "root", "root");
+	           "jdbc:mysql://localhost:3306/abamedia", "root", "00650065");
 	       Statement st = conexion.createStatement();
-	      st.executeUpdate("insert into contacto values ('"+nombre+"','"+email+"','"+file+"','"+comentarios+"')");
+	      st.executeUpdate("insert into contacto(name,email,archivo,coments) values ('" + nombre + "','" + email + "','" + file + "','" + comentarios + "')");
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
