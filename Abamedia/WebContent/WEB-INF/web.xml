@@ -14,7 +14,7 @@
     <description>Location to store uploaded file</description> 
     <param-name>file-upload</param-name> 
     <param-value>
-		C:\Documents and Settings\Alberto\git\SW\Abamedia\WebContent\Data\
+         C:\\Documents and Settings\\Alberto\\workspace\\Prueba\\WebContent\\Data\\
      </param-value> 
 </context-param>
 	<servlet>
