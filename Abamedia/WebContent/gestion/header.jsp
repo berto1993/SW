@@ -5,8 +5,12 @@
 <meta name="generator" content="JSPMaker v1.0.0.0" />
 </head>
 <body>
+<%if(session.getAttribute("name")!=null){%>
 <p>Bienvenido, <%=session.getAttribute("name")%></p>
 <p><a href="logout.jsp">Logout</a>
+<%}else{
+	response.sendRedirect("../gestion.jsp");
+}%>
 
 <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="10">
 	<tr align="center">

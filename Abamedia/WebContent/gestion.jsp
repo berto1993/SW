@@ -115,18 +115,18 @@
 				<p><h3>Sign In</h3></p>
 				<p>Accede a la gestión</p>
 				<!-- form -->
-			
+		
 				<form name="signIn" action="login.jsp" method="POST">
 					<fieldset>
 														
 						<p>
 							<label for="name" >Nombre</label>
-							<input name="name"  id="name" type="text" class="form-poshytip" title="Enter your full name" />
+							<input name="name"  id="name" type="text" class="form-poshytip" title="Introduce tu nombre" required/>
 						</p>
 						
 						<p>
 							<label for="password" >Password</label>
-							<input name="password"  id="password" type="password" class="form-poshytip" title="Enter your password" />
+							<input name="password"  id="password" type="password" class="form-poshytip" title="Introduce tu contraseña" required/>
 						</p>
 						
 					

@@ -1,3 +1,4 @@
+package clases;
 
 // Import required java libraries
 import java.io.*;
@@ -11,11 +12,10 @@ import javax.servlet.http.HttpServletResponse;
  
 
 
+
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-
-import clases.consultas;
 
 public class UploadServlet extends HttpServlet {
    
