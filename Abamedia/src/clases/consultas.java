@@ -20,9 +20,7 @@ public class consultas  implements java.io.Serializable{
 		LinkedList<produccion> listaProduccion=new LinkedList<produccion>();
 		try
 	    {
-			Class.forName("com.mysql.jdbc.Driver");
-	        Connection conexion = DriverManager.getConnection(
-	           "jdbc:mysql://localhost:3306/abamedia", "root", "00650065");
+		  Connection conexion = (Connection) DataConexionDB.GetConnection();
 	       Statement st = conexion.createStatement();
 	       Statement st2 = conexion.createStatement();
 	       ResultSet res = st.executeQuery("select * from produccion as p "
@@ -77,8 +75,7 @@ public class consultas  implements java.io.Serializable{
 		corporativo beanCor = new corporativo();
 		try
 	    {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/abamedia", "root", "00650065");
+			 Connection conexion = (Connection) DataConexionDB.GetConnection();
 			Statement st = conexion.createStatement();
 			ResultSet res = st.executeQuery("select * from corporativo" );
 			while (res.next())
@@ -122,8 +119,7 @@ public class consultas  implements java.io.Serializable{
 		LinkedList<tipo> listaTipos = new LinkedList<tipo>();
 		try
 	    {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/abamedia", "root", "00650065");
+			 Connection conexion = (Connection) DataConexionDB.GetConnection();
 			Statement st = conexion.createStatement();
 			ResultSet res = st.executeQuery("select * from tipo" );
 			while (res.next())
@@ -151,9 +147,7 @@ public class consultas  implements java.io.Serializable{
 		 usuario beanUs = null;
 		try
 	    {
-			Class.forName("com.mysql.jdbc.Driver");
-	        Connection conexion = DriverManager.getConnection(
-	           "jdbc:mysql://localhost:3306/abamedia", "root", "00650065");
+			 Connection conexion = (Connection) DataConexionDB.GetConnection();
 	       Statement st = conexion.createStatement();
 	       ResultSet res = st.executeQuery("select * from usuarios where name='" + pNombre + "' and password='" + pContra + "' limit 1");
 	       while (res.next())
@@ -175,19 +169,17 @@ public class consultas  implements java.io.Serializable{
 	    return beanUs;
 	 }
 	
-	public static void insertarContacto(String nombre, String email, String file, String comentarios) throws SQLException
+	public static void insertarContacto(String nombre, String email, String file, String comentarios) throws Exception
 	{
 		
-			try {
-				Class.forName("com.mysql.jdbc.Driver");
-		
-	        Connection conexion = DriverManager.getConnection(
-	           "jdbc:mysql://localhost:3306/abamedia", "root", "00650065");
-	       Statement st = conexion.createStatement();
-	      st.executeUpdate("insert into contacto(name,email,archivo,coments) values ('" + nombre + "','" + email + "','" + file + "','" + comentarios + "')");
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		  Connection conexion = (Connection) DataConexionDB.GetConnection();
+	      Statement st=null;
+		try {
+			st = conexion.createStatement();
+			st.executeUpdate("insert into contacto(name,email,archivo,coments) values ('" + nombre + "','" + email + "','" + file + "','" + comentarios + "')");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	      
 	}
 }
