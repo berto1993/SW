@@ -17,6 +17,7 @@ public class produccion implements java.io.Serializable{
 	private String genero;
 	private String director;
 	private LinkedList<fotograma> listaFotos=new LinkedList<fotograma>();
+	private LinkedList<actor> listaActores=new LinkedList<actor>();
 	
 	public produccion(){}
 		
@@ -81,6 +82,14 @@ public class produccion implements java.io.Serializable{
 
 	public void setListaFotos(LinkedList<fotograma> listaFotos) {
 		this.listaFotos = listaFotos;
+	}
+
+	public LinkedList<actor> getListaActores() {
+		return listaActores;
+	}
+
+	public void setListaActores(LinkedList<actor> listaActores) {
+		this.listaActores = listaActores;
 	}
 	
 }

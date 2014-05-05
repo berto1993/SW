@@ -23,6 +23,8 @@ public class consultas  implements java.io.Serializable{
 		  Connection conexion = (Connection) DataConexionDB.GetConnection();
 	       Statement st = conexion.createStatement();
 	       Statement st2 = conexion.createStatement();
+	       Statement st3 = conexion.createStatement();
+	       
 	       ResultSet res = st.executeQuery("select * from produccion as p "
 	       		+ "inner join tipo as t on p.id_tipo=t.id_tipo "
 	       		+ "inner join director as d on p.id_di=d.id_di "
@@ -52,9 +54,24 @@ public class consultas  implements java.io.Serializable{
 				      
 				 beanPro.setListaFotos(listaF);
 				 
-				 listaProduccion.add(beanPro);
+				 res2.close();
 				 
-				 res2.close();	
+				 LinkedList<actor> listaA=new LinkedList<actor>();
+				 ResultSet res3 =st3.executeQuery("select * from actor, reparto where actor.id_actor=reparto.id_actor and reparto.id_pro="+beanPro.getIdPro());
+					
+					  while (res3.next())
+					    {
+						     actor beanAct=new actor();
+						     beanAct.setName(res3.getString("nombrea"));
+						     beanAct.setPersonaje(res3.getString("nombrepersonaje"));
+					    	 listaA.add(beanAct);
+					     }
+					      
+				beanPro.setListaActores(listaA);
+					 
+				listaProduccion.add(beanPro);
+					 
+				res3.close();	
 	       }
 	       
 	       res.close();

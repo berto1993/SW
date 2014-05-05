@@ -176,8 +176,25 @@
 	        		
 	        			<h2 class="heading"><%=bp.getTitulo() %></h2>
 	        			
-	        			<div class="multicolumn">
+	        			<div>
 	        			<%=bp.getSinopsis() %>
+	        			
+	        			<%
+	        			actor ba=new actor();
+						LinkedList<actor> listaActores = bp.getListaActores();
+						if (listaActores.size() != 0)
+						{%>
+							<br/><br/>
+							Actores - Personajes:
+						<%}%>
+						<%
+						for (int a=0;a<listaActores.size();a++)
+						{
+							ba=listaActores.get(a); %>
+							<br/>
+							<%=ba.getName() %> ---- <%=ba.getPersonaje() %>
+							
+						<% }%>
 	        			</div>
 	        		</div>
 	        		<!-- ENDS entry content -->
