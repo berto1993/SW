@@ -160,63 +160,9 @@
 				<!-- ENDS SLIDER -->
 			</div>
 		</header>
-		<!-- ENDS HEADER -->
 		
-		<!-- MAIN -->
-		<div id="main">
-			<div class="wrapper cf">
-			
-			<!-- portfolio content-->
-        	<div id="portfolio-content" class="cf">        	
-				<ul id="filter-buttons">
-					<li><a href="#" data-filter="*" class="selected">show all</a></li>
-					<% LinkedList<tipo> listaTipo2 = consultas.getTipos();
-					tipo bt2 =new tipo();
-					for (int i=0;i<listaTipo2.size();i++){
-						bt2=listaTipo2.get(i);
-					%>
-					<li><a href="#" data-filter=".<%=bt2.getNombre() %>"><%=bt2.getNombre() %></a></li>
-					<%} %>
-				</ul>
-				
-				<!-- Filter container -->
-				<div id="filter-container" class="cf">
-				<% LinkedList<String> listai2 = new LinkedList<String>();
-					produccion bp2 =new produccion();
-					LinkedList<produccion> lista2 = consultas.getProducciones();
-					for (int i=0;i<lista2.size();i++){
-						bp2=lista2.get(i);
-					%>
-					<figure class="<%=bp2.getTipo() %>">
-					<% 
-						fotograma bf2=new fotograma();
-							LinkedList<fotograma> listaFotos2 = bp2.getListaFotos();
-							for (int j=0;j<listaFotos2.size();j++){
-								bf2=listaFotos2.get(j);
-								if(bf2.getPortada()){%>
-						<a href="detalle.jsp?id_pro=<%=bp2.getIdPro() %>" class="thumb"><img src="img/dummies/featured/<%=bf2.getNombreimagen()%>.jpg" alt="alt" /></a>
-						 <%	listai2.add(bf2.getNombreimagen());%>
-						     	
-						     	<%}
-							}%>
-						
-						<figcaption>
-							<a href="detalle.jsp?id_pro=<%=bp2.getIdPro() %>"><h3 class="heading"><%=bp2.getTitulo() %></h3></a>
-						</figcaption>
-					</figure>
-					
-					
-					<%}%>				
-				</div><!-- ENDS Filter container -->
-				
-			</div>
-			<!-- ENDS featured -->
-			</div>
-			<!-- ENDS WRAPPER -->
-		</div>
-		<!-- ENDS MAIN -->
-		<!-- FOOTER -->
 		<footer>
+		<BR/><BR/><BR/>
 			<div class="wrapper cf">
 			 <ul  class="widget-cols cf">
            <li class="second-col"><h4><a href="begonacarcedo.html">Begoña</a></h4></li>
