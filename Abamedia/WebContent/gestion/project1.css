@@ -1,4 +1,5 @@
 body {
+	width:100%;
 	background-color: #DAD6FE; /* background color */
 	font-size: medium; /* font size */
 	margin: 0px 0px 0px 0px; /* top right bottom left */
@@ -35,7 +36,7 @@ a:visited {
 
 /* main table */
 .ewTable {
-	width: 50%; /* table width */	
+	width: 70%; /* table width */	
 	color: ; /* text color */
 	font-family: ; /* font name */
 	font-size: medium; /* font size */
@@ -80,3 +81,8 @@ a:visited {
 .ewTableFooter {
 	background-color: #FFFFE0;	
 }
+
+.footer {
+	background-color: #333399;	
+}
+

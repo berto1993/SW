@@ -151,6 +151,12 @@ if (request.getParameter("start") != null && Integer.parseInt(request.getParamet
 %>
 <%@ include file="header.jsp" %>
 <p><span class="jspmaker">TABLE: reparto</span></p>
+<table border="0" cellspacing="0" cellpadding="4">
+	<tr>
+		<td><span class="jspmaker"><a href="repartoadd.jsp">Add</a></span></td>
+	</tr>
+</table>
+<p>
 <span class="jspmaker">
 <%
 boolean isPrev, rsEof, isMore;

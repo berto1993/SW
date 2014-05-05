@@ -151,6 +151,12 @@ if (request.getParameter("start") != null && Integer.parseInt(request.getParamet
 %>
 <%@ include file="header.jsp" %>
 <p><span class="jspmaker">TABLE: usuarios</span></p>
+<table border="0" cellspacing="0" cellpadding="4">
+	<tr>
+		<td><span class="jspmaker"><a href="usuariosadd.jsp">Add</a></span></td>
+	</tr>
+</table>
+<p>
 <span class="jspmaker">
 <%
 boolean isPrev, rsEof, isMore;
@@ -242,6 +248,7 @@ if (totalRecs > 0) {
 		</td>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
+<td>&nbsp;</td>
 </tr>
 <%
 
@@ -304,6 +311,12 @@ while (rs.next() && recCount < stopRec) {
 	<tr class="<%= rowclass %>">
 		<td><% out.print(x_name); %>&nbsp;</td>
 		<td><% out.print(x_password); %>&nbsp;</td>
+<td><span class="jspmaker"><a href="<% key =  rs.getString("password"); 
+if (key != null && key.length() > 0) { 
+	out.print("usuariosview.jsp?key=" + java.net.URLEncoder.encode(key,"UTF-8"));
+}else{
+	out.print("javascript:alert('Invalid Record! Key is null');");
+} %>">View</a></span></td>
 <td><span class="jspmaker"><a href="<% key =  rs.getString("password"); 
 if (key != null && key.length() > 0) { 
 	out.print("usuariosedit.jsp?key=" + java.net.URLEncoder.encode(key,"UTF-8"));

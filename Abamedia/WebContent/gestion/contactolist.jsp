@@ -235,14 +235,10 @@ if (totalRecs > 0) {
 <table class="ewTable">
 	<tr class="ewTableHeader">
 		<td>
-<a href="contactolist.jsp?order=<%= java.net.URLEncoder.encode("name","UTF-8") %>">name&nbsp;(*)<% if (OrderBy != null && OrderBy.equals("name")) { %><span class="ewTableOrderIndicator"><% if (((String) session.getAttribute("contacto_OT")).equals("ASC")) { %>5<% }else if (((String) session.getAttribute("contacto_OT")).equals("DESC")) { %>6<% } %></span><% } %></a>
+<a href="contactolist.jsp?order=<%= java.net.URLEncoder.encode("id","UTF-8") %>">id&nbsp;<% if (OrderBy != null && OrderBy.equals("id")) { %><span class="ewTableOrderIndicator"><% if (((String) session.getAttribute("contacto_OT")).equals("ASC")) { %>5<% }else if (((String) session.getAttribute("contacto_OT")).equals("DESC")) { %>6<% } %></span><% } %></a>
 		</td>
-		<td>
-<a href="contactolist.jsp?order=<%= java.net.URLEncoder.encode("email","UTF-8") %>">email&nbsp;(*)<% if (OrderBy != null && OrderBy.equals("email")) { %><span class="ewTableOrderIndicator"><% if (((String) session.getAttribute("contacto_OT")).equals("ASC")) { %>5<% }else if (((String) session.getAttribute("contacto_OT")).equals("DESC")) { %>6<% } %></span><% } %></a>
-		</td>
-		<td>
-<a href="contactolist.jsp?order=<%= java.net.URLEncoder.encode("ruta","UTF-8") %>">ruta&nbsp;(*)<% if (OrderBy != null && OrderBy.equals("ruta")) { %><span class="ewTableOrderIndicator"><% if (((String) session.getAttribute("contacto_OT")).equals("ASC")) { %>5<% }else if (((String) session.getAttribute("contacto_OT")).equals("DESC")) { %>6<% } %></span><% } %></a>
-		</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
 </tr>
 <%
 
@@ -279,31 +275,15 @@ while (rs.next() && recCount < stopRec) {
 	}
 %>
 <%
+	String x_coments = "";
 	String x_name = "";
 	String x_email = "";
-	String x_ruta = "";
-	String x_coments = "";
+	String x_archivo = "";
+	String x_id = "";
 
-	// name
-	if (rs.getString("name") != null){
-		x_name = rs.getString("name");
-	}else{
-		x_name = "";
-	}
-
-	// email
-	if (rs.getString("email") != null){
-		x_email = rs.getString("email");
-	}else{
-		x_email = "";
-	}
-
-	// ruta
-	if (rs.getString("ruta") != null){
-		x_ruta = rs.getString("ruta");
-	}else{
-		x_ruta = "";
-	}
+	// Load Key for record
+	String key = "";
+	key = String.valueOf(rs.getLong("id"));
 
 	// coments
 	if (rs.getClob("coments") != null) {
@@ -312,11 +292,43 @@ while (rs.next() && recCount < stopRec) {
 	}else{
 		x_coments = "";
 	}
+
+	// name
+	if (rs.getClob("name") != null) {
+		long length = rs.getClob("name").length();
+		x_name = rs.getClob("name").getSubString((long) 1, (int) length);
+	}else{
+		x_name = "";
+	}
+
+	// email
+	if (rs.getClob("email") != null) {
+		long length = rs.getClob("email").length();
+		x_email = rs.getClob("email").getSubString((long) 1, (int) length);
+	}else{
+		x_email = "";
+	}
+
+	// archivo
+	if (rs.getClob("archivo") != null) {
+		long length = rs.getClob("archivo").length();
+		x_archivo = rs.getClob("archivo").getSubString((long) 1, (int) length);
+	}else{
+		x_archivo = "";
+	}
+
+	// id
+	x_id = String.valueOf(rs.getLong("id"));
 %>
 	<tr class="<%= rowclass %>">
-		<td><% out.print(x_name); %>&nbsp;</td>
-		<td><% out.print(x_email); %>&nbsp;</td>
-		<td><% out.print(x_ruta); %>&nbsp;</td>
+		<td><% out.print(x_id); %>&nbsp;</td>
+<td><span class="jspmaker"><a href="<% key =  rs.getString("id"); 
+if (key != null && key.length() > 0) { 
+	out.print("contactoview.jsp?key=" + java.net.URLEncoder.encode(key,"UTF-8"));
+}else{
+	out.print("javascript:alert('Invalid Record! Key is null');");
+} %>">View</a></span></td>
+<td><span class="jspmaker"><input type="checkbox" name="key" value="<%=key %>" class="jspmaker">Delete</span></td>
 	</tr>
 <%
 
@@ -325,6 +337,9 @@ while (rs.next() && recCount < stopRec) {
 }
 %>
 </table>
+<% if (recActual > 0) { %>
+<p><input type="button" name="btndelete" value="DELETE SELECTED" onClick="this.form.action='contactodelete.jsp';this.form.submit();"></p>
+<% } %>
 </form>
 <%
 
