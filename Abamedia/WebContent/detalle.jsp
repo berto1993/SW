@@ -157,10 +157,14 @@
 
 
 					<div class="info">
-						<p><strong>Actores: </strong>
+						
 						<%
 	        			actor ba=new actor();
 						LinkedList<actor> listaActores = bp.getListaActores();
+						if(!listaActores.isEmpty())
+						{%>
+							<p><strong>Actores: </strong>
+						<%}
 						for (int a=0;a<listaActores.size();a++)
 						{
 							ba=listaActores.get(a);%>
