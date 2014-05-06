@@ -164,7 +164,7 @@
 						for (int a=0;a<listaActores.size();a++)
 						{
 							ba=listaActores.get(a);%>
-							<%=ba.getName() %> ---- <%=ba.getPersonaje() %>
+							<%=ba.getName() %> (<%=ba.getPersonaje() %>)
 							<br/>
 						<% }%>
 	        			<p><strong>Director: </strong> <%=bp.getDirector() %></p>
