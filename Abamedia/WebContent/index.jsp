@@ -160,7 +160,7 @@
 				<!-- ENDS SLIDER -->
 			</div>
 		</header>
-		<BR/><BR/><BR/><BR/><BR/><BR/><BR/>
+		
 		<footer>
 		<BR/><BR/><BR/>
 			<div class="wrapper cf">
