@@ -1,14 +1,19 @@
-body {
+html {
 	width:100%;
+	font-family: 'Voltaire';
+}
+
+body {
 	background: none repeat scroll 0 0 #2D2D2D; /* background color */
 	font-size: medium; /* font size */
 	margin: 0px 0px 0px 0px; /* top right bottom left */
+	font-family: 'Voltaire';
 }
 
 .jspmaker {
 	color: ; /* text color */
-	font-family:'Helvetica','Verdana','Monaco',sans-serif;
-	font-size: medium; /* font size */	
+	font-size: medium; /* font size */
+	font-family: 'Voltaire';
 }
 .columleft {
 	background-color:#F1EDE8;
@@ -26,7 +31,7 @@ a:hover{
 	 text-decoration: underline;
 }
 a:link {
-	color: #333399; /* link color */
+	color: ; /* link color */
 	text-decoration:none;   
 }
 

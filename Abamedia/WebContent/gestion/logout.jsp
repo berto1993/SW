@@ -1,9 +1,6 @@
 <%
 session.setAttribute("login", null);
 session.setAttribute("name", null);
-session.invalidate();
+//session.invalidate();
+response.sendRedirect("../index.jsp");
 %>
-
-Adios
-
-<a href ="http://localhost:8080/Abamedia/">Ir a la web Abamedia</a>
