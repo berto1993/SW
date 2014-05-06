@@ -157,15 +157,28 @@
 
 
 					<div class="info">
+						<p><strong>Actores: </strong>
+						<%
+	        			actor ba=new actor();
+						LinkedList<actor> listaActores = bp.getListaActores();
+						for (int a=0;a<listaActores.size();a++)
+						{
+							ba=listaActores.get(a);%>
+							<%=ba.getName() %> ---- <%=ba.getPersonaje() %>
+							<br/>
+						<% }%>
 	        			<p><strong>Director: </strong> <%=bp.getDirector() %></p>
 	        			<p><strong>Fecha: </strong><%=bp.getFecha() %></p>
 	        			<p><strong>Genero: </strong><%=bp.getGenero() %></p>
-	        			<% try {
-	        			if(!bp.getTrailer().equalsIgnoreCase(null))
-	        			{%>
-	        				<p><a href="<%=bp.getTrailer() %>" target="_blank" class="launch" ><strong>Trailer</strong></a></p>
-	        			<%}
-	        			}catch(NullPointerException e)
+	        			<%
+	        			try
+	        			{
+	        				if(!bp.getTrailer().equalsIgnoreCase(null))
+	        				{%>
+	        					<p><a href="<%=bp.getTrailer() %>" target="_blank" class="launch" ><strong>Trailer</strong></a></p>
+	        				<%}
+	        			}
+	        			catch(NullPointerException e)
 	        			{%>
 	        				<p><strong>Trailer no disponible</strong></p>
 	        			<%}%>
@@ -178,23 +191,6 @@
 	        			
 	        			<div>
 	        			<%=bp.getSinopsis() %>
-	        			
-	        			<%
-	        			actor ba=new actor();
-						LinkedList<actor> listaActores = bp.getListaActores();
-						if (listaActores.size() != 0)
-						{%>
-							<br/><br/>
-							Actores - Personajes:
-						<%}%>
-						<%
-						for (int a=0;a<listaActores.size();a++)
-						{
-							ba=listaActores.get(a); %>
-							<br/>
-							<%=ba.getName() %> ---- <%=ba.getPersonaje() %>
-							
-						<% }%>
 	        			</div>
 	        		</div>
 	        		<!-- ENDS entry content -->

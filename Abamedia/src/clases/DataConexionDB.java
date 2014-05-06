@@ -15,7 +15,7 @@ public class DataConexionDB {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conexion = DriverManager.getConnection(
-			       "jdbc:mysql://localhost:3306/abamedia", "root", "00650065");
+			       "jdbc:mysql://localhost:3306/abamedia", "root", "root");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
