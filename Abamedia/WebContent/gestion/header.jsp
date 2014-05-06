@@ -1,13 +1,12 @@
 <html>
 <head>
-	<title></title>
+	<title>Gestión de Abamedia</title>
 <link href="project1.css" rel="stylesheet" type="text/css" />
-<meta name="generator" content="JSPMaker v1.0.0.0" />
 </head>
 <body>
-<div align="right">
+<div class="header">
 <%if(session.getAttribute("name")!=null){%>
-<div align="center"><h1>WEB DE GESTIÓN DE ABAMEDIA</h1></div>
+<div align="center"><h1>GESTIÓN DE ABAMEDIA</h1></div>
 <div align="right">
 <p>Bienvenido, <%=session.getAttribute("name")%> || <a href="logout.jsp">Logout</a>
 <%}else{

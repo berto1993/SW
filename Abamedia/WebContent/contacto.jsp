@@ -156,7 +156,7 @@
 						
 						<p>
 							<label for="email" >Email</label>
-							<input name="email"  id="email" type="text" placeholder="ejemplo@dominio.com" class="form-poshytip" title="Enter your email address" required>
+							<input name="email"  id="email" type="text" placeholder="ejemplo@dominio.com" class="form-poshytip" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="Enter your email address" required>
 						</p>
 						
 							<p>
