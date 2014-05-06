@@ -6,7 +6,7 @@
 <%@ page import="clases.*" %>
 <%@ page import ="java.util.LinkedList"%>
 
-<html class="no-js">
+<html class="no-js" >
 
 	<head>
 		<meta charset="utf-8"/>
@@ -115,7 +115,7 @@
 					<% LinkedList<String> listai = new LinkedList<String>();
 					produccion bp =new produccion();
 					LinkedList<produccion> lista = consultas.getProducciones();
-					for (int i=0;i<lista.size();i++){
+					for (int i=0;i<7;i++){
 						bp=lista.get(i);
 					%>
 						<li>
@@ -160,7 +160,7 @@
 				<!-- ENDS SLIDER -->
 			</div>
 		</header>
-		
+		<BR/><BR/><BR/><BR/><BR/><BR/><BR/>
 		<footer>
 		<BR/><BR/><BR/>
 			<div class="wrapper cf">
