@@ -1,10 +1,4 @@
-//
-// htmlArea v2.03 - Copyright (c) 2002 interactivetools.com, inc.
-// This copyright notice MUST stay intact for use (see license.txt).
-//
-// A free WYSIWYG editor replacement for <textarea> fields.
-// For full source code and docs, visit http://www.interactivetools.com/
-//
+
 
 // write out styles for UI buttons
 document.write('<style type="text/css">\n');
