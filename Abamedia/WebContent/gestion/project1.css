@@ -27,16 +27,17 @@ input, textarea, select {
 } 
 
 a:hover{
-	color: #000033;
-	 text-decoration: underline;
+	color: #DCD2BE;
+	text-decoration: underline;
 }
 a:link {
-	color: ; /* link color */
+	color: #CB5432; /* link color */
 	text-decoration:none;   
 }
 
 a:visited {
-	color: #333399; /* link color */
+	color: #CB5432; /* link color */
+	text-decoration:none;   
 }
 
 /* main table */
@@ -94,4 +95,9 @@ a:visited {
 .header{
 	background: none repeat scroll 0 0 #2D2D2D;
 	 color:#DCD2BE;
+}
+.logout{
+	 
+	 font-weight:bold;
+	 font-size:18px;
 }

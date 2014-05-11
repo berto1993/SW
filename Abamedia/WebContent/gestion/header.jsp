@@ -8,7 +8,7 @@
 <%if(session.getAttribute("name")!=null){%>
 <div align="center"><h1>GESTIÓN DE ABAMEDIA</h1></div>
 <div align="right">
-<p>Bienvenido <%=session.getAttribute("name")%> || <a href="logout.jsp">Logout</a>
+<h2>Bienvenido <%=session.getAttribute("name")%> || <a class="logout" href="logout.jsp">Logout</a></h2>
 <%}else{
 	response.sendRedirect("../gestion.jsp");
 }%>
