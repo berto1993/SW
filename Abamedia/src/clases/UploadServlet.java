@@ -75,7 +75,7 @@ public class UploadServlet extends HttpServlet {
       while ( i.hasNext () ) 
       {
          FileItem fi = (FileItem)i.next();
-         out.println(fi.getFieldName()+":    "+fi.getString()+"<br>");
+        // out.println(fi.getFieldName()+":    "+fi.getString()+"<br>");
          if(fi.getFieldName().equals("name"))
         	 nombre = fi.getString();
          if(fi.getFieldName().equals("email"))
